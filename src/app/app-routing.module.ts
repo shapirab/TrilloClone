@@ -6,11 +6,16 @@ import { FacultyComponent } from './components/faculty/faculty.component';
 import { CoursesComponent } from './components/courses/courses.component';
 
 const routes: Routes = [
-  {path: 'home/students', component: StudentsComponent},
-  {path: 'home/faculty', component: FacultyComponent},
-  {path: 'home/courses', component: CoursesComponent},
-  {path: 'home', component: HomeComponent},
-  {path: '', redirectTo: '/home', pathMatch: 'full'}
+  {
+    path: 'home',
+    component: HomeComponent,
+    children: [
+      { path: 'students', component: StudentsComponent },
+      { path: 'faculty', component: FacultyComponent },
+      {path: 'courses', component: CoursesComponent},
+      { path: '', redirectTo: 'students', pathMatch: 'full' }
+    ]
+  }
 ];
 
 @NgModule({
