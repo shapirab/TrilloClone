@@ -1,4 +1,4 @@
-.left-container{
+.main-container{
   display: grid;
   grid-template-columns: 15% auto;
 }

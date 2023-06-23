@@ -4,13 +4,14 @@ import { HomeComponent } from './components/home/home.component';
 import { StudentsComponent } from './components/students/students.component';
 import { FacultyComponent } from './components/faculty/faculty.component';
 import { CoursesComponent } from './components/courses/courses.component';
+import { StudentsMainComponent } from './components/students-main/students-main.component';
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
     children: [
-      { path: 'students', component: StudentsComponent },
+      { path: 'students', component: StudentsMainComponent },
       { path: 'faculty', component: FacultyComponent },
       {path: 'courses', component: CoursesComponent},
       { path: '', redirectTo: 'students', pathMatch: 'full' }

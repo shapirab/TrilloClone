@@ -11,6 +11,8 @@ import { ContentMainComponent } from './components/content-main/content-main.com
 import { StudentsComponent } from './components/students/students.component';
 import { FacultyComponent } from './components/faculty/faculty.component';
 import { CoursesComponent } from './components/courses/courses.component';
+import { StudentsMainComponent } from './components/students-main/students-main.component';
+import { StudentsFilterContainerComponent } from './components/students-filter-container/students-filter-container.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { CoursesComponent } from './components/courses/courses.component';
     StudentsComponent,
     FacultyComponent,
     CoursesComponent,
+    StudentsMainComponent,
+    StudentsFilterContainerComponent,
   ],
   imports: [
     BrowserModule,
