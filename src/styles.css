@@ -13,10 +13,19 @@ body{
   grid-template-columns: repeat(12, 1fr);
 }
 
-.col--9{
+.main-col--9{
   grid-column: 1 / 9;
 }
 
-.col--3{
+.main-col--3{
   grid-column: 9 / -1;
+}
+
+ul{
+  list-style-type: none;
+}
+
+li a{
+  text-decoration: none;
+  color: black;
 }

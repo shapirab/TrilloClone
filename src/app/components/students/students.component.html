@@ -1,2 +1,22 @@
-<p>students works!</p>
+<div class="students-container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Student Name</th>
+        <th>Student Id</th>
+        <th>Contact Email</th>
+        <th>Contact Mobile</th>
+        <th>Program</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{student.firstName}} {{student.lastName}}</td>
+        <td>{{student.id}}</td>
+        <td>{{student.mainEmail}}</td>
+        <td>{{student.mainMobile}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
