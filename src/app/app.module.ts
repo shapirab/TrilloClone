@@ -13,6 +13,7 @@ import { FacultyComponent } from './components/faculty/faculty.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { StudentsMainComponent } from './components/students-main/students-main.component';
 import { StudentsFilterContainerComponent } from './components/students-filter-container/students-filter-container.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,11 +27,12 @@ import { StudentsFilterContainerComponent } from './components/students-filter-c
     FacultyComponent,
     CoursesComponent,
     StudentsMainComponent,
-    StudentsFilterContainerComponent,
+    StudentsFilterContainerComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

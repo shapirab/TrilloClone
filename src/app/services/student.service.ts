@@ -21,7 +21,8 @@ export class StudentService {
         registrationStatusID: 1,
         houseID: 1,
         numberOfFamilyMembers: 3,
-        gradeInSchool: '1'
+        gradeInSchool: '1',
+        program: 'Conservatory'
       },
       {
         id: 2,
@@ -32,7 +33,8 @@ export class StudentService {
         registrationStatusID: 1,
         houseID: 1,
         numberOfFamilyMembers: 3,
-        gradeInSchool: '1'
+        gradeInSchool: '1',
+        program: 'Conservatory'
       },
       {
         id: 3,
@@ -43,7 +45,8 @@ export class StudentService {
         registrationStatusID: 1,
         houseID: 1,
         numberOfFamilyMembers: 3,
-        gradeInSchool: '1'
+        gradeInSchool: '1',
+        program: 'Conservatory'
       },
       {
         id: 4,
@@ -54,7 +57,8 @@ export class StudentService {
         registrationStatusID: 1,
         houseID: 1,
         numberOfFamilyMembers: 3,
-        gradeInSchool: '1'
+        gradeInSchool: '1',
+        program: 'Conservatory'
       },
       {
         id: 5,
@@ -65,7 +69,8 @@ export class StudentService {
         registrationStatusID: 1,
         houseID: 1,
         numberOfFamilyMembers: 3,
-        gradeInSchool: '1'
+        gradeInSchool: '1',
+        program: 'Conservatory'
       },
       {
         id: 6,
@@ -76,7 +81,8 @@ export class StudentService {
         registrationStatusID: 1,
         houseID: 1,
         numberOfFamilyMembers: 3,
-        gradeInSchool: '1'
+        gradeInSchool: '1',
+        program: 'Conservatory'
       },
       {
         id: 7,
@@ -87,7 +93,8 @@ export class StudentService {
         registrationStatusID: 1,
         houseID: 1,
         numberOfFamilyMembers: 3,
-        gradeInSchool: '1'
+        gradeInSchool: '1',
+        program: 'Conservatory'
       },
       {
         id: 8,
@@ -98,7 +105,8 @@ export class StudentService {
         registrationStatusID: 1,
         houseID: 1,
         numberOfFamilyMembers: 3,
-        gradeInSchool: '1'
+        gradeInSchool: '1',
+        program: 'Conservatory'
       }
     ]
   }

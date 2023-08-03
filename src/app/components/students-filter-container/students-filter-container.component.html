@@ -1,1 +1,26 @@
-<p>students-filter-container works!</p>
+<div class="student-filter-container">
+  <h2>Filter Students</h2>
+  <form #filterForm="ngForm" (ngSubmit)="onFilter(filterForm.value)">
+    <div class="form-group">
+      <label for="activeStudents">Filter Active Students</label>
+      <select class="form-control" ngModel name="activeStudents" id="activeStudents">
+        <option
+          *ngFor="let activityFilter of activeStudentsFilter" [value]="activityFilter.id">
+          {{activityFilter.name}}
+        </option>
+      </select>
+      <div class="form-group">
+        <label for="registrationStatus">Registration Status</label>
+        <input type="text" class="form-control" name="selectedRgistrationStatuses"
+        [(ngModel)]="registrationStatusesLine" >
+
+        <div *ngFor="let registrationStatus of registrationStatusList">
+          <input type="checkbox" class="form-check-inline" [value]="registrationStatus"
+              (change)="getSelectedRegistrationValue(registrationStatus)"/>
+            <span>{{registrationStatus.name}}</span>
+      </div>
+      </div>
+    </div>
+  </form>
+</div>
+

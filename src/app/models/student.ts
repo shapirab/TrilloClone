@@ -10,5 +10,6 @@ export interface Student{
   registrationStatus?: string,
   houseID: number,
   numberOfFamilyMembers: number,
-  gradeInSchool: string
+  gradeInSchool: string,
+  program: string
 }
