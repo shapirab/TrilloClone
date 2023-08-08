@@ -14,6 +14,37 @@ export class StudentsFilterContainerComponent implements OnInit {
     { id: 2, name: 'not active'}
   ];
 
+  instrumentTypes = [
+    { id: 1, name: 'violin'},
+    { id: 2, name: 'viola'},
+    { id: 3, name: 'Cello'},
+    { id: 4, name: 'contrabass'}
+  ];
+
+  ranks = [
+    {id: 1, name: "A"},
+    {id: 2, name: "B"},
+    {id: 3, name: "C"}
+  ];
+
+  years = [
+    {id: 1, name: "1"},
+    {id: 2, name: "2"},
+    {id: 3, name: "3"},
+    {id: 4, name: "4"},
+    {id: 5, name: "5"},
+    {id: 6, name: "6"}
+  ];
+  
+  gradesInSchool = [
+    {id: 1, name: "1"},
+    {id: 2, name: "2"},
+    {id: 3, name: "3"},
+    {id: 4, name: "4"},
+    {id: 5, name: "5"},
+    {id: 6, name: "6"}
+  ];
+
   registrationStatusList : RegistrationStatus[] = [
     {id: 1, name: 'registered', checked: false},
     {id: 2, name: 'accepted', checked: false},

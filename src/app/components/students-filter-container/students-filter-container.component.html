@@ -4,23 +4,48 @@
     <div class="form-group">
       <label for="activeStudents">Filter Active Students</label>
       <select class="form-control" ngModel name="activeStudents" id="activeStudents">
-        <option
-          *ngFor="let activityFilter of activeStudentsFilter" [value]="activityFilter.id">
-          {{activityFilter.name}}
+        <option *ngFor="let activityFilter of activeStudentsFilter" [value]="activityFilter.id">
+          {{ activityFilter.name }}
         </option>
       </select>
-      <div class="form-group">
-        <label for="registrationStatus">Registration Status</label>
-        <input type="text" class="form-control" name="selectedRgistrationStatuses"
-        [(ngModel)]="registrationStatusesLine" >
+    </div>
+    <div class="form-group">
+      <label for="registrationStatus">Registration Status</label>
+      <input type="text" class="form-control" name="selectedRgistrationStatuses"
+        [(ngModel)]="registrationStatusesLine"/>
 
-        <div *ngFor="let registrationStatus of registrationStatusList">
-          <input type="checkbox" class="form-check-inline" [value]="registrationStatus"
-              (change)="getSelectedRegistrationValue(registrationStatus)"/>
-            <span>{{registrationStatus.name}}</span>
+      <div *ngFor="let registrationStatus of registrationStatusList">
+        <input type="checkbox" class="form-check-inline" [value]="registrationStatus"
+          (change)="getSelectedRegistrationValue(registrationStatus)"/>
+        <span>{{ registrationStatus.name }}</span>
       </div>
-      </div>
+    </div>
+    <div class="grid grid--col-2 grid--row-2 search-container">
+      <select class="form-control search__item" ngModel name="instrumentType" id="instrumentType">
+        <option value="" selected>Instrument Type</option>
+        <option *ngFor="let instrumentType of instrumentTypes" [value]="instrumentType.id">
+          {{ instrumentType.name }}
+        </option>
+      </select>
+      <select class="form-control search__item" ngModel name="rank" id="rank">
+        <option value="" selected>Rank</option>
+        <option *ngFor="let rank of ranks" [value]="rank.id">
+          {{ rank.name }}
+        </option>
+      </select>
+      <select class="form-control search__item" ngModel name="year" id="year">
+        <option value="" selected>Year</option>
+        <option *ngFor="let year of years" [value]="year.id">
+          {{ year.name }}
+        </option>
+      </select>
+      <select class="form-control search__item" ngModel name="gradeInSchool" id="gradeInSchool">
+        <option value="" selected>Grade</option>
+        <option *ngFor="let gradeInSchool of gradesInSchool" [value]="gradeInSchool.id">
+          {{ gradeInSchool.name }}
+        </option>
+      </select>
+
     </div>
   </form>
 </div>
-

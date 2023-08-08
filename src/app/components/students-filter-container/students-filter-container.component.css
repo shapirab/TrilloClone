@@ -1,3 +1,21 @@
 .student-filter-container{
   padding: 10px 20px;
 }
+
+.search-container{
+  grid-gap: 5px;
+  margin-top: 15px;
+}
+
+.search__item{
+  background-color: transparent;
+  color: #666;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.search__item:focus{
+  outline: none;
+  box-shadow: none;
+}
