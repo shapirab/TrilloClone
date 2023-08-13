@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Department } from 'src/app/models/department';
+import { Program } from 'src/app/models/program';
 import { RegistrationStatus } from 'src/app/models/registrationStatus';
 
 @Component({
@@ -35,7 +37,7 @@ export class StudentsFilterContainerComponent implements OnInit {
     {id: 5, name: "5"},
     {id: 6, name: "6"}
   ];
-  
+
   gradesInSchool = [
     {id: 1, name: "1"},
     {id: 2, name: "2"},
@@ -43,6 +45,21 @@ export class StudentsFilterContainerComponent implements OnInit {
     {id: 4, name: "4"},
     {id: 5, name: "5"},
     {id: 6, name: "6"}
+  ];
+
+  departments: Department[] = [
+    {id: 1, name: "Strings"},
+    {id: 2, name: "Winds"},
+    {id: 3, name: "Percussion"},
+    {id: 4, name: "Theory"},
+    {id: 5, name: "Piano"}
+
+  ];
+
+  programs: Program[] = [
+    {id: 1, name: "Conservatory"},
+    {id: 1, name: "Perperatory"},
+    {id: 1, name: "School"},
   ];
 
   registrationStatusList : RegistrationStatus[] = [

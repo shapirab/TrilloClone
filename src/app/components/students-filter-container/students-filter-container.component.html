@@ -4,7 +4,8 @@
     <div class="form-group">
       <label for="activeStudents">Filter Active Students</label>
       <select class="form-control" ngModel name="activeStudents" id="activeStudents">
-        <option *ngFor="let activityFilter of activeStudentsFilter" [value]="activityFilter.id">
+        <option *ngFor="let activityFilter of activeStudentsFilter"
+          [value]="activityFilter.id">
           {{ activityFilter.name }}
         </option>
       </select>
@@ -23,7 +24,7 @@
     <div class="grid grid--col-2 grid--row-2 search-container">
       <select class="form-control search__item" ngModel name="instrumentType" id="instrumentType">
         <option value="" selected>Instrument Type</option>
-        <option *ngFor="let instrumentType of instrumentTypes" [value]="instrumentType.id">
+        <option ngModel *ngFor="let instrumentType of instrumentTypes" [value]="instrumentType.id">
           {{ instrumentType.name }}
         </option>
       </select>
@@ -45,7 +46,26 @@
           {{ gradeInSchool.name }}
         </option>
       </select>
-
     </div>
+    <div class="form-group">
+      <label for="department">Department</label>
+      <select class="form-control" ngModel name="department" id="department">
+        <option value="" selected></option>
+        <option *ngFor="let department of departments" [value]="department.id">
+          {{ department.name }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="program">Program</label>
+      <select class="form-control" ngModel name="program" id="program">
+        <option value="" selected></option>
+        <option *ngFor="let program of programs" [value]="program.id">
+          {{ program.name }}
+        </option>
+      </select>
+    </div>
+
+
   </form>
 </div>

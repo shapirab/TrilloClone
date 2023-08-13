@@ -1,3 +1,5 @@
+import { Program } from "./program";
+
 export interface Student{
   id: number,
   firstName: string,
@@ -11,5 +13,5 @@ export interface Student{
   houseID: number,
   numberOfFamilyMembers: number,
   gradeInSchool: string,
-  program: string
+  program: Program
 }
