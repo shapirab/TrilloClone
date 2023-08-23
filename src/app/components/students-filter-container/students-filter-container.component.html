@@ -24,7 +24,7 @@
     <div class="grid grid--col-2 grid--row-2 search-container">
       <select class="form-control search__item" ngModel name="instrumentType" id="instrumentType">
         <option value="" selected>Instrument Type</option>
-        <option ngModel *ngFor="let instrumentType of instrumentTypes" [value]="instrumentType.id">
+        <option *ngFor="let instrumentType of instrumentTypes" [value]="instrumentType.id">
           {{ instrumentType.name }}
         </option>
       </select>
@@ -37,13 +37,13 @@
       <select class="form-control search__item" ngModel name="year" id="year">
         <option value="" selected>Year</option>
         <option *ngFor="let year of years" [value]="year.id">
-          {{ year.name }}
+          {{ year.numOfYearsInSchool }}
         </option>
       </select>
       <select class="form-control search__item" ngModel name="gradeInSchool" id="gradeInSchool">
         <option value="" selected>Grade</option>
         <option *ngFor="let gradeInSchool of gradesInSchool" [value]="gradeInSchool.id">
-          {{ gradeInSchool.name }}
+          {{ gradeInSchool.schoolGrade }}
         </option>
       </select>
     </div>
