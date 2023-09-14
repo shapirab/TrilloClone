@@ -14,6 +14,7 @@ import { CoursesComponent } from './components/courses/courses.component';
 import { StudentsMainComponent } from './components/students-main/students-main.component';
 import { StudentsFilterContainerComponent } from './components/students-filter-container/students-filter-container.component';
 import { FormsModule } from '@angular/forms';
+import { StudentsDetailMainComponent } from './components/students-detail-main/students-detail-main.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     FacultyComponent,
     CoursesComponent,
     StudentsMainComponent,
-    StudentsFilterContainerComponent
+    StudentsFilterContainerComponent,
+    StudentsDetailMainComponent,
   ],
   imports: [
     BrowserModule,

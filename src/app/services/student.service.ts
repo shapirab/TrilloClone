@@ -114,4 +114,31 @@ export class StudentService {
   getAll(){
     return this.students;
   }
+
+  getStudentById(id: number): Student{
+    return this.students.filter(student => student.id === id)[0];
+  }
+
+  // getStudentsByFilter(filter: Record<string, any>):Student[]{
+  //   console.log(filter);
+  //   this.students = this.students.filter((student: Student) => {
+  //    //iterate through filter. If filter is not empty, and students.filter...
+  //    for (var key in filter) {
+  //     if (this.students[key] !== '' || this.students[key] !== filter[key])
+  //       return false;
+  //   }
+  //   return true;
+  //   });
+  //   return this.students;
+  // }
+
+  getStudentsByFilter(filter: any): Student[] {
+    //This cannot be done on angular. The criteria are not members of the Student,
+    //and involve multiple tables querry. This must be an http call to GetStudentsByCriteria
+    //on an api controller
+    //this.students = this.students.filter((student: Student) => {});
+    console.log(Object.entries(filter));
+    return this.students;
+  }
+
 }

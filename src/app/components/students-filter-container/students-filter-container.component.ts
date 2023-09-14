@@ -13,6 +13,7 @@ import { SchoolGradesService } from 'src/app/services/school-grades.service';
 import { DepartmentService } from 'src/app/services/department.service';
 import { ProgramService } from 'src/app/services/program.service';
 import { RegistrationService } from 'src/app/services/registration.service';
+import { StudentService } from 'src/app/services/student.service';
 
 @Component({
   selector: 'app-students-filter-container',
@@ -48,7 +49,8 @@ export class StudentsFilterContainerComponent implements OnInit {
                   private schoolService: SchoolGradesService,
                   private departmentService: DepartmentService,
                   private programService: ProgramService,
-                  private registrationService: RegistrationService) {
+                  private registrationService: RegistrationService,
+                  private studentService: StudentService) {
     this.instrumentTypes = instrumentTypeService.getAll();
     this.ranks = ranksService.getAll();
     this.years = yearsService.getAll();
@@ -61,7 +63,9 @@ export class StudentsFilterContainerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onFilter(values:any){
+  onFilter(filter:any){
+    //console.log(filter);
+    this.studentService.getStudentsByFilter(filter);
 
   }
 
@@ -69,7 +73,6 @@ export class StudentsFilterContainerComponent implements OnInit {
     this.registrationStatusesLine = "";
     this.addOrRemoveStatus(registrationStatus);
     this.selectedRegistrationStatuses.forEach(registrationStatus => {
-      console.log(registrationStatus)
       this.registrationStatusesLine = this.registrationStatusesLine.concat(registrationStatus.name + ", ");
     });
   }
@@ -98,6 +101,4 @@ export class StudentsFilterContainerComponent implements OnInit {
     let index = this.selectedRegistrationStatuses.indexOf(registrationStatus);
     this.selectedRegistrationStatuses.splice(index, 1);
   }
-
-
 }

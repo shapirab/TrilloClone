@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Student } from 'src/app/models/student';
 import { StudentService } from 'src/app/services/student.service';
 
@@ -14,5 +15,4 @@ export class StudentsComponent implements OnInit {
   ngOnInit(): void {
     this.students = this.studentService.getAll();
   }
-
 }

@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let student of students">
+      <tr class="student" *ngFor="let student of students" [routerLink]="['../students', student.id]">
         <td>{{student.firstName}} {{student.lastName}}</td>
         <td>{{student.id}}</td>
         <td>{{student.mainEmail}}</td>
