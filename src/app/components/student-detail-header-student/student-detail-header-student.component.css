@@ -1,11 +1,12 @@
 .container{
   padding: 0;
   margin: 0;
+  margin-left: 2rem;
   width: 100%;
 }
 
 .student__details{
   width: 100%;
-  
+
 
 }

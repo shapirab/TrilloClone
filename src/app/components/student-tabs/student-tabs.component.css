@@ -1,0 +1,18 @@
+.tabs__tab-bars{
+  display: flex;
+  align-items: flex-start;
+}
+
+.tabs__tab{
+  padding: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.tabs__tab a{
+  font-size: 1.5rem;
+  font-weight: 400;
+}

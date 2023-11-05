@@ -1,0 +1,14 @@
+<div>
+    <ul class="tabs__tab-bars">
+      <li class="tabs__tab" ><a [routerLink]="['/home/students', student.id, 'contact']">Contact Info</a></li>
+      <li class="tabs__tab" ><a [routerLink]="['/home/students', student.id, 'program']">Program</a></li>
+      <li class="tabs__tab" ><a [routerLink]="['/home/students', student.id, 'courses']">Courses</a></li>
+      <li class="tabs__tab" ><a [routerLink]="['/home/students', student.id, 'instruments']">Instruments</a></li>
+      <li class="tabs__tab" ><a [routerLink]="['/home/students', student.id, 'documents']">Documents</a></li>
+      <li class="tabs__tab" ><a [routerLink]="['/home/students', student.id, 'finances']">Finantial Information</a></li>
+      <li class="tabs__tab" ><a [routerLink]="['/home/students', student.id, 'exams']">Exams</a></li>
+    </ul>
+</div>
+<div>
+  <router-outlet></router-outlet>
+</div>

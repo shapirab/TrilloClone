@@ -17,6 +17,14 @@ import { FormsModule } from '@angular/forms';
 import { StudentsDetailMainComponent } from './components/students-detail-main/students-detail-main.component';
 import { StudentDetailHeaderComponent } from './components/student-detail-header/student-detail-header.component';
 import { StudentDetailHeaderStudentComponent } from './components/student-detail-header-student/student-detail-header-student.component';
+import { StudentTabsComponent } from './components/student-tabs/student-tabs.component';
+import { StudentContactComponent } from './components/student-contact/student-contact.component';
+import { StudentProgramComponent } from './student-program/student-program.component';
+import { StudentCoursesComponent } from './student-courses/student-courses.component';
+import { StudentInstrumentsComponent } from './student-instruments/student-instruments.component';
+import { StudentDocumentsComponent } from './student-documents/student-documents.component';
+import { StudentFinancesComponent } from './student-finances/student-finances.component';
+import { StudentExamsComponent } from './student-exams/student-exams.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +42,14 @@ import { StudentDetailHeaderStudentComponent } from './components/student-detail
     StudentsDetailMainComponent,
     StudentDetailHeaderComponent,
     StudentDetailHeaderStudentComponent,
+    StudentTabsComponent,
+    StudentContactComponent,
+    StudentProgramComponent,
+    StudentCoursesComponent,
+    StudentInstrumentsComponent,
+    StudentDocumentsComponent,
+    StudentFinancesComponent,
+    StudentExamsComponent,
   ],
   imports: [
     BrowserModule,
