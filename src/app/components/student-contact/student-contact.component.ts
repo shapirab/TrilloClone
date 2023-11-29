@@ -12,4 +12,8 @@ export class StudentContactComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSave(value: any){
+    
+  }
+
 }

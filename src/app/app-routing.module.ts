@@ -29,7 +29,6 @@ const routes: Routes = [
           { path: 'documents', component: StudentDocumentsComponent },
           { path: 'finances', component: StudentFinancesComponent },
           { path: 'exams', component: StudentExamsComponent },
-
         ]
       },
       { path: 'faculty', component: FacultyComponent },

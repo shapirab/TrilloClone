@@ -1,0 +1,20 @@
+.container{
+  background-color: #fff;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+  padding: 1rem 2rem;
+}
+
+label{
+  color: #6eb52f;
+}
+
+input{
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+input:focus{
+  background-color: gold;
+  outline: 0;
+  outline: none;
+}

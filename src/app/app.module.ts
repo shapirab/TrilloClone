@@ -25,6 +25,7 @@ import { StudentInstrumentsComponent } from './student-instruments/student-instr
 import { StudentDocumentsComponent } from './student-documents/student-documents.component';
 import { StudentFinancesComponent } from './student-finances/student-finances.component';
 import { StudentExamsComponent } from './student-exams/student-exams.component';
+import { ParentsContactComponent } from './components/parents-contact/parents-contact.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { StudentExamsComponent } from './student-exams/student-exams.component';
     StudentDocumentsComponent,
     StudentFinancesComponent,
     StudentExamsComponent,
+    ParentsContactComponent,
   ],
   imports: [
     BrowserModule,

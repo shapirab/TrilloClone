@@ -1,0 +1,47 @@
+form{
+  background-color: var(--main-background-color);
+  width: 90%;
+}
+
+.info-block{
+  padding: 1rem 2rem;
+}
+
+.info-block__heading{
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.info-block__body{
+  grid-gap: 10px;
+  background-color: #fff;
+  box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
+  padding: 1rem 2rem;
+}
+
+label{
+  color: #6eb52f;
+}
+
+input{
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+input:focus{
+  background-color: gold;
+  outline: 0;
+  outline: none;
+}
+
+.parents-container{
+  padding: 0;
+  grid-gap: 2rem;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.btn-primary{
+  background-color:#6eb52f;
+  border: none;
+}
