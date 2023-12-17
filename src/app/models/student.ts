@@ -1,13 +1,14 @@
 import { Program } from "./program";
 
 export interface Student{
-  id: number,
+  stakeholderID: number,
+  israeliID: string,
   firstName: string,
   lastName: string,
-  mainEmail: string,
-  mainMobile: string,
-  studentEmail?: string,
-  studentMobile?: string,
+  mainContactEmail: string,
+  mainContactPhoneNumber: string,
+  emailAddress?: string,
+  CellPhoneNumber?: string,
   registrationStatusID: number,
   registrationStatus?: string,
   houseID: number,

@@ -12,18 +12,14 @@ export class ContentComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    console.log('entering onInit');
-
     this.router.events.subscribe(event => {
       if(event instanceof NavigationEnd){
         let currentUrl = event.url;
-        console.log(currentUrl);
         if(currentUrl.match(/^\/home\/students\/\d+$/)){
           console.log('isStudent is true');
           this.isStudent = true;
         }
         else{
-          console.log('isStudent is false');
           this.isStudent = false;
         }
       }

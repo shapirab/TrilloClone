@@ -6,18 +6,21 @@
         <th>Student Id</th>
         <th>Contact Email</th>
         <th>Contact Mobile</th>
-        <th>Program</th>
+        <!-- <th>Program</th> -->
       </tr>
     </thead>
     <tbody>
-      <tr class="student" *ngFor="let student of students" [routerLink]="['../students', student.id]">
+      <tr class="student" *ngFor="let student of students" [routerLink]="['../students', student.stakeholderID]">
         <td>{{student.firstName}} {{student.lastName}}</td>
-        <td>{{student.id}}</td>
-        <td>{{student.mainEmail}}</td>
-        <td>{{student.mainMobile}}</td>
-        <td>{{student.program.name}}</td>
+        <td>{{student.israeliID}}</td>
+        <td>{{student.mainContactEmail}}</td>
+        <td>{{student.mainContactPhoneNumber}}</td>
+        <!-- <td>{{student.program.name}}</td> -->
       </tr>
     </tbody>
   </table>
 </div>
+<button id="btnSave" class="btn btn-primary btn--add" (click)="onAdd()">
+  <i class="fas fa-plus icon"></i>
+</button>
 

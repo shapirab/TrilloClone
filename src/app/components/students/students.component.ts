@@ -10,9 +10,20 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class StudentsComponent implements OnInit {
   students: Student[];
-  constructor(private studentService: StudentService) { }
+  constructor(private studentService: StudentService, private route: Router) { }
 
   ngOnInit(): void {
-    this.students = this.studentService.getAll();
+    this.getStudents();
+  }
+
+  async getStudents(){
+      await this.studentService.getAll().subscribe(res => {
+        console.log(res);
+      this.students = res;
+    });
+  }
+
+  onAdd(){
+    this.route.navigate(['home/student-add']);
   }
 }

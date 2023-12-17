@@ -12,6 +12,7 @@ import { StudentInstrumentsComponent } from './student-instruments/student-instr
 import { StudentDocumentsComponent } from './student-documents/student-documents.component';
 import { StudentFinancesComponent } from './student-finances/student-finances.component';
 import { StudentExamsComponent } from './student-exams/student-exams.component';
+import { StudentAddComponent } from './components/student-add/student-add.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,7 @@ const routes: Routes = [
           { path: 'exams', component: StudentExamsComponent },
         ]
       },
+      {path: 'student-add', component: StudentAddComponent},
       { path: 'faculty', component: FacultyComponent },
       {path: 'courses', component: CoursesComponent},
       { path: '', redirectTo: 'students', pathMatch: 'full' }

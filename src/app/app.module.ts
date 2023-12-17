@@ -26,6 +26,8 @@ import { StudentDocumentsComponent } from './student-documents/student-documents
 import { StudentFinancesComponent } from './student-finances/student-finances.component';
 import { StudentExamsComponent } from './student-exams/student-exams.component';
 import { ParentsContactComponent } from './components/parents-contact/parents-contact.component';
+import { HttpClientModule } from '@angular/common/http';
+import { StudentAddComponent } from './components/student-add/student-add.component';
 
 @NgModule({
   declarations: [
@@ -52,11 +54,14 @@ import { ParentsContactComponent } from './components/parents-contact/parents-co
     StudentFinancesComponent,
     StudentExamsComponent,
     ParentsContactComponent,
+    StudentAddComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
