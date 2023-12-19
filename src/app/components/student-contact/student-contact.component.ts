@@ -10,13 +10,14 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class StudentContactComponent implements OnInit {
   studentId: number;
-  student: Student;
-  israeliID: number;
+  israeliID: string;
   FirstName: string;
   LastName: string;
   BirthDate: string;
   Address: string;
   City: string;
+  MainContactPhone: string;
+  MainContactEmail: string;
 
 
   constructor(private service: StudentService, private route: ActivatedRoute) { }
@@ -25,22 +26,23 @@ export class StudentContactComponent implements OnInit {
     this.route.parent?.params.subscribe(params => {
       this.studentId = +params['id'];
         this.loadStudent();
-        this.populateForm();
+
     });
   }
 
   loadStudent(){
-    this.service.getStudentById(this.studentId).subscribe((res) => {
-      console.log(res);
-      this.student = res;
+    this.service.getStudentById(this.studentId).subscribe((student) => {
+      this.populateForm(student);
     });
   }
 
-  populateForm(){
-    if(this.student){
-      this.israeliID = this.student.stakeholderID;
-      this.FirstName = this.student.firstName;
-      this.LastName = this.student.lastName;
+  populateForm(student: Student){
+    if(student){
+      this.israeliID = student.israeliID;
+      this.FirstName = student.firstName;
+      this.LastName = student.lastName;
+      this.MainContactEmail = student.mainContactEmail;
+      this.MainContactPhone = student.mainContactPhoneNumber;
     }
   }
 

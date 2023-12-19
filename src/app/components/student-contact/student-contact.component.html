@@ -60,7 +60,7 @@
           <label for="mainContactPhone">Main Contact Phone Number</label>
           <input type="text" class="form-control" required name="mainContactPhone"
               id="mainContactPhone" placeholder="Main Contact Phone Number"
-              #mainContactPhone="ngModel" ngModel>
+              #mainContactPhone="ngModel" [(ngModel)]="MainContactPhone">
           <div class="alert alert-danger" *ngIf="mainContactPhone.touched && !mainContactPhone.valid">
             Main Contact Phone Number is required
           </div>
@@ -68,7 +68,8 @@
         <div class="form-group">
           <label for="mainContactEmail">Main Contact Email Address</label>
           <input type="text" class="form-control" required name="mainContactEmail"
-              id="mainContactEmail" placeholder="Main Contact Email Address" #mainContactEmail="ngModel" ngModel>
+              id="mainContactEmail" placeholder="Main Contact Email Address"
+              #mainContactEmail="ngModel" [(ngModel)]="MainContactEmail">
           <div class="alert alert-danger" *ngIf="mainContactEmail.touched && !mainContactEmail.valid">
             Main Contact Email Address is required
           </div>

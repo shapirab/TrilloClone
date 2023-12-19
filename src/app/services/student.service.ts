@@ -121,7 +121,7 @@ export class StudentService {
 
   getStudentById(id: number): Observable<Student>{
     //return this.students.filter(student => student.id === id)[0];
-    return this.http.get<Student>(`${this.baseUrl}/${id}`);
+    return this.http.get<Student>(`${this.baseUrl}/stakeholders/${id}`);
   }
 
   // getStudentsByFilter(filter: Record<string, any>):Student[]{

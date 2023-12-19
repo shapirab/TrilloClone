@@ -14,7 +14,9 @@ export class StudentsDetailMainComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.forEach(param => {
-      this.studentService.getStudentById(+param['id']).subscribe(s => this.student = s);
+      this.studentService.getStudentById(+param['id']).subscribe(s => {
+        this.student = s;
+      });
     });
   }
 

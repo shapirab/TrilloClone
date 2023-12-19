@@ -9,7 +9,7 @@ import { Student } from 'src/app/models/student';
 export class StudentDetailHeaderStudentComponent implements OnInit {
 
   @Input() student: Student;
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }

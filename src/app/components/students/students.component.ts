@@ -18,7 +18,6 @@ export class StudentsComponent implements OnInit {
 
   async getStudents(){
       await this.studentService.getAll().subscribe(res => {
-        console.log(res);
       this.students = res;
     });
   }
