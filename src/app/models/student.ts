@@ -7,6 +7,8 @@ export interface Student{
   lastName: string,
   mainContactEmail: string,
   mainContactPhoneNumber: string,
+  address: string,
+  city: string,
   emailAddress?: string,
   CellPhoneNumber?: string,
   registrationStatusID: number,
@@ -14,5 +16,6 @@ export interface Student{
   houseID: number,
   numberOfFamilyMembers: number,
   gradeInSchool: string,
+  dateOfBirth: Date,
   program: Program
 }

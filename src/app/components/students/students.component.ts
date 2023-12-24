@@ -23,6 +23,6 @@ export class StudentsComponent implements OnInit {
   }
 
   onAdd(){
-    this.route.navigate(['home/student-add']);
+    this.route.navigate(['home/contact']);
   }
 }

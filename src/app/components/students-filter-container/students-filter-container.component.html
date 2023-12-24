@@ -13,6 +13,7 @@
     <div class="form-group">
       <label for="registrationStatus">Registration Status</label>
       <input type="text" class="form-control" name="selectedRgistrationStatuses"
+        id="registrationStatus"
         [(ngModel)]="registrationStatusesLine"/>
 
       <div *ngFor="let registrationStatus of registrationStatusList">

@@ -27,7 +27,6 @@ import { StudentFinancesComponent } from './student-finances/student-finances.co
 import { StudentExamsComponent } from './student-exams/student-exams.component';
 import { ParentsContactComponent } from './components/parents-contact/parents-contact.component';
 import { HttpClientModule } from '@angular/common/http';
-import { StudentAddComponent } from './components/student-add/student-add.component';
 
 @NgModule({
   declarations: [
@@ -53,9 +52,7 @@ import { StudentAddComponent } from './components/student-add/student-add.compon
     StudentDocumentsComponent,
     StudentFinancesComponent,
     StudentExamsComponent,
-    ParentsContactComponent,
-    StudentAddComponent,
-
+    ParentsContactComponent
   ],
   imports: [
     BrowserModule,

@@ -13,11 +13,13 @@ export class StudentContactComponent implements OnInit {
   israeliID: string;
   FirstName: string;
   LastName: string;
-  BirthDate: string;
+  BirthDate: Date;
   Address: string;
   City: string;
   MainContactPhone: string;
   MainContactEmail: string;
+
+  isNewStudent: boolean = false;
 
 
   constructor(private service: StudentService, private route: ActivatedRoute) { }
@@ -25,8 +27,7 @@ export class StudentContactComponent implements OnInit {
   ngOnInit(): void {
     this.route.parent?.params.subscribe(params => {
       this.studentId = +params['id'];
-        this.loadStudent();
-
+      this.studentId ? this.loadStudent() : this.createStudent();
     });
   }
 
@@ -36,6 +37,10 @@ export class StudentContactComponent implements OnInit {
     });
   }
 
+  createStudent(){
+    this.isNewStudent = true;
+  }
+
   populateForm(student: Student){
     if(student){
       this.israeliID = student.israeliID;
@@ -43,11 +48,23 @@ export class StudentContactComponent implements OnInit {
       this.LastName = student.lastName;
       this.MainContactEmail = student.mainContactEmail;
       this.MainContactPhone = student.mainContactPhoneNumber;
+      this.Address = student.address;
+      this.City = student.city;
+      this.BirthDate = student.dateOfBirth;
     }
   }
 
   onSave(value: any){
+    this.isNewStudent ? this.createNewStudent(value) : this.updateStudent();
+  }
+
+  createNewStudent(value: any){
+    console.log('creating new sutdent');
+    console.log(value);
+    this.service.saveStudent(value);
 
   }
+
+  updateStudent(){}
 
 }
