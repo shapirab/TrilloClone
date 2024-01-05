@@ -1,0 +1,10 @@
+export interface Parent{
+  stakeholderID?: number,
+  israeliID: string,
+  firstName: string,
+  lastName: string,
+  address: string,
+  city: string,
+  emailAddress?: string,
+  CellPhoneNumber?: string,
+}

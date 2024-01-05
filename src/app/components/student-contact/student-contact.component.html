@@ -30,7 +30,11 @@
         <div class="form-group">
           <label for="birthDate">Birth Date</label>
           <input type="date" class="form-control" required name="birthDate"
-              id="birthDate" placeholder="Birth Date" #birthDate="ngModel" [(ngModel)]="BirthDate">
+              id="birthDate" placeholder="Birth Date" #birthDate="ngModel"
+              [(ngModel)]="BirthDate">
+          <!-- <input type="date" class="form-control" required name="birthDate"
+              id="birthDate" placeholder="Birth Date" #birthDate="ngModel"
+              [(ngModel)]="BirthDate" [value]="formatDate(BirthDate)"> -->
           <div class="alert alert-danger" *ngIf="birthDate.touched && !birthDate.valid">
             Birth Date is required
           </div>
@@ -79,8 +83,8 @@
     <div class="info-block">
       <h2 class="info-block__heading">Parents Information</h2>
       <div class="parents-container info-block__body grid grid--col-2">
-        <app-parents-contact></app-parents-contact>
-        <app-parents-contact></app-parents-contact>
+        <app-parents-contact [parent]="parent1"></app-parents-contact>
+        <app-parents-contact [parent]="parent2"></app-parents-contact>
       </div>
     </div>
     <div class="info-block">

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Student } from '../models/student';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Parent } from '../models/parent';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,7 @@ import { Observable } from 'rxjs';
 export class StudentService {
   //students: Student[];
   baseUrl: string = 'https://localhost:7231/api';
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getAll(): Observable<Student[]>{
     return this.http.get<Student[]>(`${this.baseUrl}/stakeholders/students`);
@@ -18,6 +18,10 @@ export class StudentService {
 
   getStudentById(id: number): Observable<Student>{
     return this.http.get<Student>(`${this.baseUrl}/stakeholders/${id}`);
+  }
+
+  getStudentParents(studentId: number): Observable<Parent[]>{
+    return this.http.get<Parent[]>(`${this.baseUrl}/stakeholders/parents/${studentId}`);
   }
 
   // getStudentsByFilter(filter: Record<string, any>):Student[]{

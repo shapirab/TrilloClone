@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Parent } from 'src/app/models/parent';
 import { Student } from 'src/app/models/student';
 import { StudentService } from 'src/app/services/student.service';
 
@@ -21,6 +22,9 @@ export class StudentContactComponent implements OnInit {
 
   isNewStudent: boolean = false;
 
+  parent1: Parent;
+  parent2: Parent;
+
 
   constructor(private service: StudentService, private route: ActivatedRoute) { }
 
@@ -28,6 +32,7 @@ export class StudentContactComponent implements OnInit {
     this.route.parent?.params.subscribe(params => {
       this.studentId = +params['id'];
       this.studentId ? this.loadStudent() : this.createStudent();
+      this.getStudentParents(this.studentId);
     });
   }
 
@@ -54,6 +59,15 @@ export class StudentContactComponent implements OnInit {
     }
   }
 
+  formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+    const day = ('0' + date.getDate()).slice(-2);
+
+    return `${year}-${month}-${day}`;
+  }
+
   onSave(value: any){
     this.isNewStudent ? this.createNewStudent(value) : this.updateStudent();
   }
@@ -66,5 +80,13 @@ export class StudentContactComponent implements OnInit {
   }
 
   updateStudent(){}
+
+  getStudentParents(studentId: number){
+    this.service.getStudentParents(studentId).subscribe((parentsRes) => {
+      let parents: Parent[] = parentsRes;
+      this.parent1 = parents[0];
+      this.parent2 = parents[1];
+    });
+  }
 
 }
