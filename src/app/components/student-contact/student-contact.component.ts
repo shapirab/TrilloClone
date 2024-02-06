@@ -25,13 +25,22 @@ export class StudentContactComponent implements OnInit {
   parent1: Parent;
   parent2: Parent;
 
+  isParent1New = true;
+  isParent2New = true;
+
 
   constructor(private service: StudentService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.parent?.params.subscribe(params => {
       this.studentId = +params['id'];
-      this.studentId ? this.loadStudent() : this.createStudent();
+
+      if(this.studentId){
+        this.loadStudent();
+      }
+      else{
+        this.isNewStudent = true;
+      }
       this.getStudentParents(this.studentId);
     });
   }
@@ -40,10 +49,6 @@ export class StudentContactComponent implements OnInit {
     this.service.getStudentById(this.studentId).subscribe((student) => {
       this.populateForm(student);
     });
-  }
-
-  createStudent(){
-    this.isNewStudent = true;
   }
 
   populateForm(student: Student){
@@ -70,10 +75,11 @@ export class StudentContactComponent implements OnInit {
 
   onSave(value: any){
     this.isNewStudent ? this.createNewStudent(value) : this.updateStudent();
+    //this.addStudentParents();
   }
 
   createNewStudent(value: any){
-    console.log('creating new sutdent');
+    console.log('creating new student');
     console.log(value);
     this.service.saveStudent(value);
 
@@ -81,12 +87,37 @@ export class StudentContactComponent implements OnInit {
 
   updateStudent(){}
 
-  getStudentParents(studentId: number){
-    this.service.getStudentParents(studentId).subscribe((parentsRes) => {
-      let parents: Parent[] = parentsRes;
-      this.parent1 = parents[0];
-      this.parent2 = parents[1];
-    });
+  //TODO: implement
+  updateStudentParent(parent:Parent){
+    console.log('current parents:');
+    console.log(this.parent1);
+    console.log(this.parent2);
+
+    if(this.parent1){
+      this.isParent1New = false;
+    }
+
+    parent.lastName = this.LastName;
+    parent.address = this.Address;
+    console.log('updated parent: ')
+    console.log(parent);
+    
+    this.parent1 = parent;
   }
 
+
+  addStudentParent(parent:Parent){
+    this.service.addStudentParent(parent, this.studentId);
+  }
+
+  getStudentParents(studentId: number){
+    this.service.getStudentParents(studentId).subscribe({
+      next: parentsRes => {
+        let parents: Parent[] = parentsRes;
+        this.parent1 = parents[0];
+        this.parent2 = parents[1]
+      },
+      error: err => console.log(err)
+    });
+  }
 }

@@ -3,6 +3,7 @@ import { Student } from '../models/student';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Parent } from '../models/parent';
+import { StudentRegistrationStatusInAcademicYear } from '../models/studentRegistrationStatusInAcademicYear';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,17 @@ export class StudentService {
     return this.http.get<Student>(`${this.baseUrl}/stakeholders/${id}`);
   }
 
+  getStudentsByRegistrationStatus(isActive:boolean): Observable<Student[]>{
+    return this.http.get<Student[]>(`${this.baseUrl}/students/${isActive ? 'active' : 'inactive'}`);
+  }
+
   getStudentParents(studentId: number): Observable<Parent[]>{
     return this.http.get<Parent[]>(`${this.baseUrl}/stakeholders/parents/${studentId}`);
+  }
+
+  getStudentRegistrationStatus(studentId: number, academicYearId: number){
+    return this.http.get<StudentRegistrationStatusInAcademicYear>
+    (`${this.baseUrl}/stakeholders/${studentId}/${academicYearId}`);
   }
 
   // getStudentsByFilter(filter: Record<string, any>):Student[]{
@@ -54,6 +64,13 @@ export class StudentService {
 
   saveStudent(student: Student){
     this.http.post(`${this.baseUrl}/stakeholders/students`, student)
+    .subscribe((res) => {
+      //no op...
+    });
+  }
+
+  addStudentParent(parent: Parent, studentID: number){
+    this.http.post(`${this.baseUrl}/parent/${studentID}`, parent)
     .subscribe((res) => {
       //no op...
     });

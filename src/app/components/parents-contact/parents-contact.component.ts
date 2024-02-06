@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Parent } from 'src/app/models/parent';
+
 
 @Component({
   selector: 'app-parents-contact',
@@ -8,6 +9,8 @@ import { Parent } from 'src/app/models/parent';
 })
 export class ParentsContactComponent implements OnInit {
   @Input() parent: Parent;
+  @Output() updatedParent = new EventEmitter<Parent>();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -22,6 +25,11 @@ export class ParentsContactComponent implements OnInit {
         CellPhoneNumber: ''
       }
     }
+  }
+
+  onParentChange(): void {
+    console.log('parent onParentChange() called');
+    this.updatedParent.emit(this.parent);
   }
 
 }

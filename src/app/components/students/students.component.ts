@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Student } from 'src/app/models/student';
 import { StudentService } from 'src/app/services/student.service';
@@ -9,11 +9,13 @@ import { StudentService } from 'src/app/services/student.service';
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
-  students: Student[];
+  @Input() students: Student[];
   constructor(private studentService: StudentService, private route: Router) { }
 
   ngOnInit(): void {
-    this.getStudents();
+    if(this.students.length == 0){
+      this.getStudents();
+    }
   }
 
   async getStudents(){

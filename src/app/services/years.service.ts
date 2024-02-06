@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { YearInSchool } from '../models/year';
+import { YearInSchool } from '../models/yearInSchool';
 
 @Injectable({
   providedIn: 'root'

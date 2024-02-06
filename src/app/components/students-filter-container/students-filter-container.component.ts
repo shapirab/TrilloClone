@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Department } from 'src/app/models/department';
 import { InstrumentType } from 'src/app/models/instrumentType';
 import { Rank } from 'src/app/models/rank';
@@ -6,7 +6,7 @@ import { Program } from 'src/app/models/program';
 import { RegistrationStatus } from 'src/app/models/registrationStatus';
 import { InstrumentTypeService } from 'src/app/services/instrument-type.service';
 import { RanksService } from 'src/app/services/ranks.service';
-import { YearInSchool } from 'src/app/models/year';
+import { YearInSchool } from 'src/app/models/yearInSchool';
 import { YearsService } from 'src/app/services/years.service';
 import { SchoolGrade } from 'src/app/models/schoolGrade';
 import { SchoolGradesService } from 'src/app/services/school-grades.service';
@@ -21,6 +21,8 @@ import { StudentService } from 'src/app/services/student.service';
   styleUrls: ['./students-filter-container.component.css']
 })
 export class StudentsFilterContainerComponent implements OnInit {
+  @Output() isFilterByActiveStudents: EventEmitter<boolean> = new EventEmitter();
+
   registrationStatusesLine: string = "";
 
   activeStudentsFilter = [
@@ -64,8 +66,12 @@ export class StudentsFilterContainerComponent implements OnInit {
   }
 
   onFilter(filter:any){
-    //console.log(filter);
-    this.studentService.getStudentsByFilter(filter);
+    if(filter.activeStudents == '1'){
+      this.isFilterByActiveStudents.emit(true);
+    }
+    else if(filter.activeStudents === '2'){
+      this.isFilterByActiveStudents.emit(false);
+    }
 
   }
 
