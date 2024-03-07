@@ -14,6 +14,7 @@ export class ParentsContactComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.parent);
     if(!this.parent){
       this.parent = {
         israeliID: '',
@@ -21,14 +22,16 @@ export class ParentsContactComponent implements OnInit {
         lastName: '',
         address: '',
         city: '',
-        emailAddress: '',
-        CellPhoneNumber: ''
+        mainContactEmail: '',
+        mainContactPhoneNumber: ''
       }
     }
   }
 
-  onParentChange(): void {
+  onParentChange(parentValues: any): void {
     console.log('parent onParentChange() called');
+    this.parent = parentValues;
+    console.log(this.parent);
     this.updatedParent.emit(this.parent);
   }
 

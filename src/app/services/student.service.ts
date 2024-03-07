@@ -22,7 +22,7 @@ export class StudentService {
   }
 
   getStudentsByRegistrationStatus(isActive:boolean): Observable<Student[]>{
-    return this.http.get<Student[]>(`${this.baseUrl}/students/${isActive ? 'active' : 'inactive'}`);
+    return this.http.get<Student[]>(`${this.baseUrl}/stakeholders/students/${isActive ? 'active' : 'inactive'}`);
   }
 
   getStudentParents(studentId: number): Observable<Parent[]>{
@@ -70,7 +70,14 @@ export class StudentService {
   }
 
   addStudentParent(parent: Parent, studentID: number){
-    this.http.post(`${this.baseUrl}/parent/${studentID}`, parent)
+    this.http.post(`${this.baseUrl}/stakeholders/parent/${studentID}`, parent)
+    .subscribe((res) => {
+      //no op...
+    });
+  }
+
+  updateStudentParent(parentToUpdateId: Number, updatedParent: Parent){
+    this.http.put(`${this.baseUrl}/stakeholders/parent/${parentToUpdateId}`, updatedParent)
     .subscribe((res) => {
       //no op...
     });

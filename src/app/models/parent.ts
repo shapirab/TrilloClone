@@ -5,6 +5,6 @@ export interface Parent{
   lastName: string,
   address: string,
   city: string,
-  emailAddress?: string,
-  CellPhoneNumber?: string,
+  mainContactEmail?: string,
+  mainContactPhoneNumber?: string,
 }

@@ -1,26 +1,27 @@
 <div class="container grid grid--col-2">
-  <div class="form-group">
-    <label for="israeliId">Israeli Id</label>
-    <input type="text" class="form-control" required name="israeliId"
-        id="israeliId" placeholder="Israeli Id" #israeliId="ngModel" [(ngModel)]="parent.israeliID"
-        (ngModelChange)="onParentChange()">
-  </div>
-  <div class="form-group">
-    <label for="firstName">First Name</label>
-    <input type="text" class="form-control" required name="firstName"
-        id="firstName" placeholder="First Name" #firstName="ngModel" [(ngModel)]="parent.firstName"
-        (ngModelChange)="onParentChange()">
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="text" class="form-control" required name="email"
-        id="email" placeholder="Email" #email="ngModel" [(ngModel)]="parent.emailAddress"
-        (ngModelChange)="onParentChange()">
-  </div>
-  <div class="form-group">
-    <label for="cellphone">Cellphone</label>
-    <input type="text" class="form-control" required name="cellphone"
-        id="cellphone" placeholder="Cellphone" #email="ngModel" [(ngModel)]="parent.CellPhoneNumber"
-        (ngModelChange)="onParentChange()">
-  </div>
+  <form #parentForm="ngForm" (ngSubmit)="onParentChange(parentForm.value)">
+    <div class="form-group">
+      <label for="israeliId">Israeli Id</label>
+      <input type="text" class="form-control" required name="israeliId"
+          id="israeliId" placeholder="Israeli Id" #israeliId="ngModel" [(ngModel)]="parent.israeliID">
+    </div>
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control" required name="firstName"
+          id="firstName" placeholder="First Name" #firstName="ngModel" [(ngModel)]="parent.firstName">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" required name="mainContactEmail"
+          id="mainContactEmail" placeholder="Email" #email="ngModel" [(ngModel)]="parent.mainContactEmail">
+    </div>
+    <div class="form-group">
+      <label for="cellphone">Cellphone</label>
+      <input type="text" class="form-control" required name="mainContactPhoneNumber"
+          id="mainContactPhoneNumber" placeholder="Cellphone" #email="ngModel" [(ngModel)]="parent.mainContactPhoneNumber">
+    </div>
+    <div class="info-block">
+      <button type="submit" class="btn btn-primary">Save Parent</button>
+    </div>
+  </form>
 </div>

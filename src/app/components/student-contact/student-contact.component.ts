@@ -25,10 +25,6 @@ export class StudentContactComponent implements OnInit {
   parent1: Parent;
   parent2: Parent;
 
-  isParent1New = true;
-  isParent2New = true;
-
-
   constructor(private service: StudentService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -87,26 +83,34 @@ export class StudentContactComponent implements OnInit {
 
   updateStudent(){}
 
-  //TODO: implement
-  updateStudentParent(parent:Parent){
-    console.log('current parents:');
-    console.log(this.parent1);
-    console.log(this.parent2);
+  updateStudentParent_1(updatedParent1: Parent){
+    console.log('updateStudentParent_1 called');
+    console.log(updatedParent1);
+    this.parent1 ? this.updateStudentParent(updatedParent1, this.parent1) :
+                    this.addStudentParent(updatedParent1);
+  }
 
-    if(this.parent1){
-      this.isParent1New = false;
-    }
+  updateStudentParent_2(updatedParent2: Parent){
+    console.log('updateStudentParent_2 called');
+    this.parent1 ? this.updateStudentParent(updatedParent2, this.parent2) :
+                    this.addStudentParent(updatedParent2);
+  }
 
+  updateStudentParent(parent:Parent, parentToUpdate: Parent){
     parent.lastName = this.LastName;
     parent.address = this.Address;
     console.log('updated parent: ')
     console.log(parent);
-    
-    this.parent1 = parent;
+
+    this.service.updateStudentParent(parentToUpdate.stakeholderID!, parent);
   }
 
 
   addStudentParent(parent:Parent){
+    console.log('addStudentParent was called with parent:')
+    console.log(parent);
+    parent.lastName = this.LastName;
+    parent.address = this.Address;
     this.service.addStudentParent(parent, this.studentId);
   }
 
