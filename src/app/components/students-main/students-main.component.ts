@@ -14,9 +14,10 @@ export class StudentsMainComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //TODO: How do we get the academic year id into this component?
   filterByActiveStudents(isActive: boolean){
     console.log('in students-main got from filter container isActive: ', isActive);
-    this.studentService.getStudentsByRegistrationStatus(isActive)
+    this.studentService.getStudentsByRegistrationStatus(1, isActive)
     .subscribe({
       next: (res) => {
         this.students = res;

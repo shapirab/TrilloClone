@@ -21,8 +21,9 @@ export class StudentService {
     return this.http.get<Student>(`${this.baseUrl}/stakeholders/${id}`);
   }
 
-  getStudentsByRegistrationStatus(isActive:boolean): Observable<Student[]>{
-    return this.http.get<Student[]>(`${this.baseUrl}/stakeholders/students/${isActive ? 'active' : 'inactive'}`);
+  getStudentsByRegistrationStatus(academicYearId:number, isActive:boolean): Observable<Student[]>{
+    return this.http.get<Student[]>
+    (`${this.baseUrl}/stakeholders/studentsregistration/${academicYearId}/${isActive}`);
   }
 
   getStudentParents(studentId: number): Observable<Parent[]>{
@@ -31,7 +32,7 @@ export class StudentService {
 
   getStudentRegistrationStatus(studentId: number, academicYearId: number){
     return this.http.get<StudentRegistrationStatusInAcademicYear>
-    (`${this.baseUrl}/stakeholders/${studentId}/${academicYearId}`);
+    (`${this.baseUrl}/stakeholders/studentregistration/${studentId}/${academicYearId}`);
   }
 
   // getStudentsByFilter(filter: Record<string, any>):Student[]{
