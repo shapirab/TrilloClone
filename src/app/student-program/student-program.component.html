@@ -29,12 +29,14 @@
           [value]="instrumentPriceList.id">{{instrumentPriceList.name}}</option>
         </select>
       </div>
-      <!-- TODO: here is the problem -->
-      <!-- <div class="form-group">
+      <div class="form-group">
         <label for="comments">Comments</label>
         <input type="text" class="form-control" name="comments"
-            id="comments" placeholder="Comments" #comments="ngModel" [(ngModel)]="comments">
-      </div> -->
+            id="comments" placeholder="Comments" #comments="ngModel" ngModel>
+      </div>
+    </div>
+    <div class="info-block">
+      <button type="submit" class="btn btn-primary">Save</button>
     </div>
   </div>
 </form>
