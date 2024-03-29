@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { InstrumentType } from '../models/instrumentType';
+import { Rank } from '../models/rank';
 
 @Component({
   selector: 'app-student-instruments',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student-instruments.component.css']
 })
 export class StudentInstrumentsComponent implements OnInit {
-
-  constructor() { }
+  instrumentTypes: InstrumentType[];
+  ranks: Rank[];
+  startDate: Date;
+  experience: number;
+  constructor() {
+    this.startDate = new Date();
+  }
 
   ngOnInit(): void {
+  }
+
+  onSave(value: any){
+
   }
 
 }

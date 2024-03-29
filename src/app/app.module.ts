@@ -27,6 +27,7 @@ import { StudentFinancesComponent } from './student-finances/student-finances.co
 import { StudentExamsComponent } from './student-exams/student-exams.component';
 import { ParentsContactComponent } from './components/parents-contact/parents-contact.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AcademicYearSelectorComponent } from './components/academic-year-selector/academic-year-selector.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { HttpClientModule } from '@angular/common/http';
     StudentDocumentsComponent,
     StudentFinancesComponent,
     StudentExamsComponent,
-    ParentsContactComponent
+    ParentsContactComponent,
+    AcademicYearSelectorComponent
   ],
   imports: [
     BrowserModule,

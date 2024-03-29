@@ -32,9 +32,6 @@
           <input type="date" class="form-control" required name="birthDate"
               id="birthDate" placeholder="Birth Date" #birthDate="ngModel"
               [(ngModel)]="BirthDate">
-          <!-- <input type="date" class="form-control" required name="birthDate"
-              id="birthDate" placeholder="Birth Date" #birthDate="ngModel"
-              [(ngModel)]="BirthDate" [value]="formatDate(BirthDate)"> -->
           <div class="alert alert-danger" *ngIf="birthDate.touched && !birthDate.valid">
             Birth Date is required
           </div>
@@ -54,7 +51,7 @@
           <div class="alert alert-danger" *ngIf="city.touched && !city.valid">
             City is required
           </div>
-        </div>st
+        </div>
       </div>
     </div>
     <div class="info-block">

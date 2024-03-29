@@ -1,1 +1,33 @@
-<p>student-instruments works!</p>
+<form #studentInstrumentsForm="ngForm" (ngSubmit)="onSave(studentInstrumentsForm.value)">
+  <div class="info-block__body grid grid--col-5">
+    <div class="form-group">
+      <label for="instrumentType">Instrument Type</label>
+      <select name="instrumentType" id="instrumentType" class="form-control" ngModel>
+        <option *ngFor="let instrumentType of instrumentTypes" [value]="instrumentType.id">
+          {{ instrumentType.name }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="rank">Rank</label>
+      <select name="rank" id="rank" class="form-control" ngModel>
+        <option *ngFor="let rank of ranks" [value]="rank.id">
+          {{ rank.name }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="startDateInput">Start Date</label>
+          <input type="date" class="form-control" name="startDateInput"
+          id="startDate" #startDateInput="ngModel" [(ngModel)]="startDate">
+    </div>
+    <div class="form-group">
+      <label for="experience">Years of Experience</label>
+      <input type="text" class="form-control" required name="experience"
+          id="experience" #experienceInput="ngModel" [(ngModel)]="experience">
+    </div>
+    <div>
+      <button class="btn btn-secondary">Save</button>
+    </div>
+  </div>
+</form>
