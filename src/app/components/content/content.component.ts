@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { AcademicYear } from 'src/app/models/academicYear';
 
 @Component({
   selector: 'app-content',
@@ -7,7 +8,7 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
-
+  academicYear: AcademicYear;
   isStudent: Boolean = false;
   constructor(private router: Router) { }
 
@@ -24,16 +25,9 @@ export class ContentComponent implements OnInit {
         }
       }
     });
-
-
-    // if(this.router.url.match(/^\/students\/\d+$/)){
-    //   console.log(this.isStudent);
-    //   this.isStudent = true;
-    // }
-    // else{
-    //   console.log('isStudent is false');
-    //   this.isStudent = false;
-    // }
+  }
+  setAcademicYear(selectedAcademicYear: AcademicYear){
+    this.academicYear = selectedAcademicYear;
   }
 
 }

@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AcademicYear } from 'src/app/models/academicYear';
 import { AcademicYearsService } from 'src/app/services/academic-years.service';
-import { YearsService } from 'src/app/services/years.service';
 
 @Component({
   selector: 'app-academic-year-selector',
@@ -9,9 +8,10 @@ import { YearsService } from 'src/app/services/years.service';
   styleUrls: ['./academic-year-selector.component.css']
 })
 export class AcademicYearSelectorComponent implements OnInit {
-
+  @Output() academicYear = new EventEmitter<AcademicYear>();
   academicYears: AcademicYear[];
   selectedYear: AcademicYear;
+
   constructor(private academicYearService: AcademicYearsService) { }
 
   ngOnInit(): void {
@@ -19,7 +19,6 @@ export class AcademicYearSelectorComponent implements OnInit {
     this.academicYearService.getAcademicYearByIdAsync(1).subscribe({
       next: (res) => {
         this.selectedYear = res;
-        console.log(this.selectedYear.academicYearName)
       }
     });
   }
@@ -28,14 +27,13 @@ export class AcademicYearSelectorComponent implements OnInit {
     this.academicYearService.getAllAsync().subscribe({
       next: (response) => {
         this.academicYears = response;
-        console.log(this.academicYears)
       },
       error: err => console.log(err)
     });
   }
 
   submitSelectedYear(){
-    console.log(this.selectedYear);
+    this.academicYear.emit(this.selectedYear);
   }
 }
 

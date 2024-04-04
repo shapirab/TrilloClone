@@ -71,7 +71,6 @@ li a{
 /* Form styling */
 form{
   background-color: var(--main-background-color);
-  width: 90%;
 }
 
 .info-block{
@@ -80,7 +79,7 @@ form{
 
 .info-block__heading{
   font-size: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0 1rem 0;
 }
 
 .info-block__body{

@@ -1,4 +1,4 @@
 <div class="main-container">
-  <app-nav-left></app-nav-left>
+  <app-nav-left (academicYear)="setAcademicYear($event)"></app-nav-left>
   <app-content-main [ngClass]="{'test': isStudent}"></app-content-main>
 </div>
