@@ -8,6 +8,7 @@ import { AcademicYear } from 'src/app/models/academicYear';
 })
 export class NavLeftComponent implements OnInit {
   @Output() academicYear = new EventEmitter<AcademicYear>();
+  academicYearSelection: AcademicYear;
   constructor() { }
 
   ngOnInit(): void {
@@ -15,7 +16,9 @@ export class NavLeftComponent implements OnInit {
 
   setAcademicYear(selectedAcademicYear: AcademicYear){
     console.log('from nav: ');
-    console.log(selectedAcademicYear);
+    console.log(selectedAcademicYear.academicYearName);
+    this.academicYearSelection = selectedAcademicYear;
+    console.log(this.academicYearSelection)
     this.academicYear.emit(selectedAcademicYear);
   }
 
