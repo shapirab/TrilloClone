@@ -3,10 +3,10 @@
       <h2 class="info-block__heading">Personal Detail</h2>
       <div class="info-block__body grid grid--col-4">
         <div class="form-group">
-          <label for="israeliId">Israeli Id</label>
-          <input type="text" class="form-control" required name="israeliId"
-              id="israeliId" placeholder="Israeli Id" #israeliId="ngModel" [(ngModel)]="israeliID">
-          <div class="alert alert-danger" *ngIf="israeliId.touched && !israeliId.valid">
+          <label for="israeliID">Israeli Id</label>
+          <input type="text" class="form-control" required name="israeliID"
+              id="israeliID" placeholder="Israeli Id" #israeliID="ngModel" [(ngModel)]="IsraeliID">
+          <div class="alert alert-danger" *ngIf="israeliID.touched && !israeliID.valid">
             Israeli Id is required
           </div>
         </div>

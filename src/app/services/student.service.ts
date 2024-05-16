@@ -22,6 +22,8 @@ export class StudentService {
   }
 
   getStudentsByRegistrationStatus(academicYearId:number, isActive:boolean): Observable<Student[]>{
+    console.log('from student service:')
+    console.log(academicYearId)
     return this.http.get<Student[]>
     (`${this.baseUrl}/stakeholders/studentsregistration/${academicYearId}/${isActive}`);
   }
@@ -70,15 +72,26 @@ export class StudentService {
     });
   }
 
+  updateStudent(studentToUpdateId: string, updatedStudent: Student){
+    console.log('entering updateStudent in service')
+    console.log(`studentID: ${studentToUpdateId}`)
+    console.log('student:')
+    console.log(updatedStudent)
+    this.http.put(`${this.baseUrl}/stakeholders/${studentToUpdateId}`, updatedStudent)
+    .subscribe((res) => {
+      //no op...
+    });
+  }
+
   addStudentParent(parent: Parent, studentID: number){
-    this.http.post(`${this.baseUrl}/stakeholders/parent/${studentID}`, parent)
+    this.http.post(`${this.baseUrl}/stakeholders/parents/${studentID}`, parent)
     .subscribe((res) => {
       //no op...
     });
   }
 
   updateStudentParent(parentToUpdateId: Number, updatedParent: Parent){
-    this.http.put(`${this.baseUrl}/stakeholders/parent/${parentToUpdateId}`, updatedParent)
+    this.http.put(`${this.baseUrl}/stakeholders/parents/${parentToUpdateId}`, updatedParent)
     .subscribe((res) => {
       //no op...
     });

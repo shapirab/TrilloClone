@@ -21,4 +21,5 @@ export class AcademicYearsService {
   getActiveAcademicYearAsync(isActive: boolean):Observable<AcademicYear>{
     return this.http.get<AcademicYear>(`${this.baseUrl}/activeYear/${isActive}`);
   }
+
 }

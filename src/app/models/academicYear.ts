@@ -1,5 +1,5 @@
 export interface AcademicYear{
-  academicYearId: number,
+  academicYearID: number,
   academicYearName: string,
   isActive: boolean
 }

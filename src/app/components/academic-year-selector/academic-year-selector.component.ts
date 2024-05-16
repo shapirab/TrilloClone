@@ -19,7 +19,8 @@ export class AcademicYearSelectorComponent implements OnInit {
     this.academicYearService.getAcademicYearByIdAsync(1).subscribe({
       next: (res) => {
         this.selectedYear = res;
-      }
+      },
+      error: err => console.log(err)
     });
   }
 

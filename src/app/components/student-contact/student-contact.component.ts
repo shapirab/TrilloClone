@@ -11,7 +11,7 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class StudentContactComponent implements OnInit {
   studentId: number;
-  israeliID: string;
+  IsraeliID: string;
   FirstName: string;
   LastName: string;
   BirthDate: Date;
@@ -49,7 +49,7 @@ export class StudentContactComponent implements OnInit {
 
   populateForm(student: Student){
     if(student){
-      this.israeliID = student.israeliID;
+      this.IsraeliID = student.israeliID;
       this.FirstName = student.firstName;
       this.LastName = student.lastName;
       this.MainContactEmail = student.mainContactEmail;
@@ -70,7 +70,7 @@ export class StudentContactComponent implements OnInit {
   }
 
   onSave(value: any){
-    this.isNewStudent ? this.createNewStudent(value) : this.updateStudent();
+    this.isNewStudent ? this.createNewStudent(value) : this.updateStudent(value);
     //this.addStudentParents();
   }
 
@@ -81,7 +81,9 @@ export class StudentContactComponent implements OnInit {
 
   }
 
-  updateStudent(){}
+  updateStudent(value: Student){
+    this.service.updateStudent(value.israeliID, value);
+  }
 
   updateStudentParent_1(updatedParent1: Parent){
     console.log('updateStudentParent_1 called');
