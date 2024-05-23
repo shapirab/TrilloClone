@@ -4,8 +4,12 @@
   padding: 1rem 2rem;
 }
 
-label{
+/* label{
   color: #6eb52f;
+} */
+
+.parent-form{
+  background-color: #fff;
 }
 
 input{

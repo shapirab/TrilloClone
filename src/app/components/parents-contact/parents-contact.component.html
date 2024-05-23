@@ -1,5 +1,5 @@
 <div class="container grid grid--col-2">
-  <form #parentForm="ngForm" (ngSubmit)="onParentChange(parentForm.value)">
+  <form #parentForm="ngForm" class="parent-form" (ngSubmit)="onParentChange(parentForm.value)">
     <div class="form-group">
       <label for="israeliId">Israeli Id</label>
       <input type="text" class="form-control" required name="israeliId"
