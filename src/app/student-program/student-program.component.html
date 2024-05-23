@@ -6,7 +6,7 @@
         <label for="program">Program</label>
         <select name="program" id="program" class="form-control" ngModel>
           <option *ngFor="let program of programs" [value]="program.id">
-            {{ program.name }}
+            {{ program.programName }}
           </option>
         </select>
       </div>

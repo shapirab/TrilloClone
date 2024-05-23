@@ -1,4 +1,4 @@
 export interface Program{
   id: number,
-  name: string
+  programName: string
 }

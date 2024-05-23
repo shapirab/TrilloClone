@@ -58,11 +58,22 @@ export class StudentsFilterContainerComponent implements OnInit {
     this.years = yearsService.getAll();
     this.gradesInSchool = schoolService.getAll();
     this.departments = departmentService.getAll();
-    this.programs = programService.getAll();
+    //this.programs = programService.getAll();
     this.registrationStatusList = registrationService.getAll();
   }
 
   ngOnInit(): void {
+    this.getPrograms();
+  }
+
+  async getPrograms(){
+    await this.programService.getAll().subscribe({
+      next: programs => {
+        this.programs = programs;
+        console.log(programs)
+      },
+      error: err => console.log(err)
+    });
   }
 
   onFilter(filter:any){
