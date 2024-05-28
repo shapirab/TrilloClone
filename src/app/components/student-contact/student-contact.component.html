@@ -28,11 +28,11 @@
         </div>
 
         <div class="form-group">
-          <label for="birthDate">Birth Date</label>
-          <input type="date" class="form-control" required name="birthDate"
-              id="birthDate" placeholder="Birth Date" #birthDate="ngModel"
-              [(ngModel)]="BirthDate">
-          <div class="alert alert-danger" *ngIf="birthDate.touched && !birthDate.valid">
+          <label for="dateOfBirth">Birth Date</label>
+          <input type="date" class="form-control" required name="dateOfBirth"
+              id="dateOfBirth" placeholder="Birth Date" #dateOfBirth="ngModel"
+              [(ngModel)]="DateOfBirth">
+          <div class="alert alert-danger" *ngIf="dateOfBirth.touched && !dateOfBirth.valid">
             Birth Date is required
           </div>
         </div>

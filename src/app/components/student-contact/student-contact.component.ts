@@ -14,7 +14,7 @@ export class StudentContactComponent implements OnInit {
   IsraeliID: string;
   FirstName: string;
   LastName: string;
-  BirthDate: Date;
+  DateOfBirth: Date;
   Address: string;
   City: string;
   MainContactPhone: string;
@@ -56,7 +56,7 @@ export class StudentContactComponent implements OnInit {
       this.MainContactPhone = student.mainContactPhoneNumber;
       this.Address = student.address;
       this.City = student.city;
-      this.BirthDate = student.dateOfBirth;
+      this.DateOfBirth = student.dateOfBirth;
     }
   }
 
@@ -82,6 +82,7 @@ export class StudentContactComponent implements OnInit {
   }
 
   updateStudent(value: Student){
+    console.log('from student-contact - student: ', value);
     this.service.updateStudent(value.israeliID, value);
   }
 
