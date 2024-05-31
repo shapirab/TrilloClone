@@ -24,4 +24,8 @@ export class ProgramService {
   getAll():Observable<Program[]>{
     return this.http.get<Program[]>(`${this.baseUrl}/programs`);
   }
+
+  getStudentPrograms(studentID:number):Observable<Program[]>{
+    return this.http.get<Program[]>(`${this.baseUrl}/Stakeholders/programs/${studentID}`);
+  }
 }

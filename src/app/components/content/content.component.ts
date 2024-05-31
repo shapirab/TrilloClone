@@ -17,7 +17,6 @@ export class ContentComponent implements OnInit {
       if(event instanceof NavigationEnd){
         let currentUrl = event.url;
         if(currentUrl.match(/^\/home\/students\/\d+$/)){
-          console.log('isStudent is true');
           this.isStudent = true;
         }
         else{

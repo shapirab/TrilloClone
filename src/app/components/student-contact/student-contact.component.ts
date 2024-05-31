@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Parent } from 'src/app/models/parent';
 import { Student } from 'src/app/models/student';
 import { StudentService } from 'src/app/services/student.service';
@@ -25,7 +25,7 @@ export class StudentContactComponent implements OnInit {
   parent1: Parent;
   parent2: Parent;
 
-  constructor(private service: StudentService, private route: ActivatedRoute) { }
+  constructor(private service: StudentService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.parent?.params.subscribe(params => {
@@ -71,30 +71,24 @@ export class StudentContactComponent implements OnInit {
 
   onSave(value: any){
     this.isNewStudent ? this.createNewStudent(value) : this.updateStudent(value);
-    //this.addStudentParents();
+    this.router.navigate(['/students']);
   }
 
   createNewStudent(value: any){
-    console.log('creating new student');
-    console.log(value);
     this.service.saveStudent(value);
 
   }
 
   updateStudent(value: Student){
-    console.log('from student-contact - student: ', value);
     this.service.updateStudent(value.israeliID, value);
   }
 
   updateStudentParent_1(updatedParent1: Parent){
-    console.log('updateStudentParent_1 called');
-    console.log(updatedParent1);
     this.parent1 ? this.updateStudentParent(updatedParent1, this.parent1) :
                     this.addStudentParent(updatedParent1);
   }
 
   updateStudentParent_2(updatedParent2: Parent){
-    console.log('updateStudentParent_2 called');
     this.parent1 ? this.updateStudentParent(updatedParent2, this.parent2) :
                     this.addStudentParent(updatedParent2);
   }
@@ -102,16 +96,11 @@ export class StudentContactComponent implements OnInit {
   updateStudentParent(parent:Parent, parentToUpdate: Parent){
     parent.lastName = this.LastName;
     parent.address = this.Address;
-    console.log('updated parent: ')
-    console.log(parent);
-
     this.service.updateStudentParent(parentToUpdate.stakeholderID!, parent);
   }
 
 
   addStudentParent(parent:Parent){
-    console.log('addStudentParent was called with parent:')
-    console.log(parent);
     parent.lastName = this.LastName;
     parent.address = this.Address;
     this.service.addStudentParent(parent, this.studentId);
