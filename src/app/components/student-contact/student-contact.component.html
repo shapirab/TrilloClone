@@ -31,7 +31,7 @@
           <label for="dateOfBirth">Birth Date</label>
           <input type="date" class="form-control" required name="dateOfBirth"
               id="dateOfBirth" placeholder="Birth Date" #dateOfBirth="ngModel"
-              [(ngModel)]="DateOfBirth">
+              [(ngModel)]="DateOfBirthFormatted">
           <div class="alert alert-danger" *ngIf="dateOfBirth.touched && !dateOfBirth.valid">
             Birth Date is required
           </div>

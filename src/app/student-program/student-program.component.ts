@@ -20,6 +20,7 @@ export class StudentProgramComponent implements OnInit {
   programPriceList: ProgramPriceList;
   instrumentPriceList: InstrumentPriceList;
   programs: Program[];
+  selectedProgram: Program;
   registrationStatuses: RegistrationStatus[];
   programPriceLists: ProgramPriceList[];
   instrumentPriceLists: InstrumentPriceList[];
@@ -43,6 +44,7 @@ export class StudentProgramComponent implements OnInit {
 
   onSave(value: any){
     console.log(value);
+    console.log(this.selectedProgram)
   }
 
 }

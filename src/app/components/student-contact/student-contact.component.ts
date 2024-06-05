@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Parent } from 'src/app/models/parent';
@@ -15,6 +16,7 @@ export class StudentContactComponent implements OnInit {
   FirstName: string;
   LastName: string;
   DateOfBirth: Date;
+  DateOfBirthFormatted: string | null;
   Address: string;
   City: string;
   MainContactPhone: string;
@@ -44,6 +46,7 @@ export class StudentContactComponent implements OnInit {
   loadStudent(){
     this.service.getStudentById(this.studentId).subscribe((student) => {
       this.populateForm(student);
+      console.log(student)
     });
   }
 
@@ -56,7 +59,9 @@ export class StudentContactComponent implements OnInit {
       this.MainContactPhone = student.mainContactPhoneNumber;
       this.Address = student.address;
       this.City = student.city;
-      this.DateOfBirth = student.dateOfBirth;
+      this.DateOfBirth = new Date(student.dateOfBirth);
+      const datePipe = new DatePipe('en-US');
+      this.DateOfBirthFormatted = datePipe.transform(this.DateOfBirth, 'yyyy-MM-dd');
     }
   }
 

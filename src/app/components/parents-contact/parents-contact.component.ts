@@ -29,7 +29,6 @@ export class ParentsContactComponent implements OnInit {
 
   onParentChange(parentValues: any): void {
     this.parent = parentValues;
-    console.log(this.parent);
     this.updatedParent.emit(this.parent);
   }
 
