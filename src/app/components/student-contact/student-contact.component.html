@@ -59,8 +59,8 @@
       <div class="info-block__body grid grid--col-4">
         <div class="form-group">
           <label for="mainContactPhone">Main Contact Phone Number</label>
-          <input type="text" class="form-control" required name="mainContactPhone"
-              id="mainContactPhone" placeholder="Main Contact Phone Number"
+          <input type="text" class="form-control" required name="mainContactPhoneNumber"
+              id="mainContactPhoneNumber" placeholder="Main Contact Phone Number"
               #mainContactPhone="ngModel" [(ngModel)]="MainContactPhone">
           <div class="alert alert-danger" *ngIf="mainContactPhone.touched && !mainContactPhone.valid">
             Main Contact Phone Number is required

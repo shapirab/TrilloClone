@@ -12,6 +12,7 @@ import { StudentInstrumentsComponent } from './student-instruments/student-instr
 import { StudentDocumentsComponent } from './student-documents/student-documents.component';
 import { StudentFinancesComponent } from './student-finances/student-finances.component';
 import { StudentExamsComponent } from './student-exams/student-exams.component';
+import { StudentProgramRegistrationComponent } from './student-program-registration/student-program-registration.component';
 
 const routes: Routes = [
   {
@@ -23,7 +24,7 @@ const routes: Routes = [
         component: StudentsDetailMainComponent,
         children: [
           { path: 'contact', component: StudentContactComponent },
-          { path: 'program', component: StudentProgramComponent },
+          { path: 'program', component: StudentProgramRegistrationComponent },
           { path: 'courses', component: StudentCoursesComponent },
           { path: 'instruments', component: StudentInstrumentsComponent },
           { path: 'documents', component: StudentDocumentsComponent },

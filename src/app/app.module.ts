@@ -28,6 +28,8 @@ import { StudentExamsComponent } from './student-exams/student-exams.component';
 import { ParentsContactComponent } from './components/parents-contact/parents-contact.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AcademicYearSelectorComponent } from './components/academic-year-selector/academic-year-selector.component';
+import { StudentProgramRegistrationComponent } from './student-program-registration/student-program-registration.component';
+import { StudentProgramsListComponent } from './student-programs-list/student-programs-list.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { AcademicYearSelectorComponent } from './components/academic-year-select
     StudentFinancesComponent,
     StudentExamsComponent,
     ParentsContactComponent,
-    AcademicYearSelectorComponent
+    AcademicYearSelectorComponent,
+    StudentProgramRegistrationComponent,
+    StudentProgramsListComponent
   ],
   imports: [
     BrowserModule,

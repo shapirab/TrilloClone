@@ -1,104 +1,14 @@
-<form #programForm="ngForm" (ngSubmit)="onSave(programForm.value)">
-  <div class="info-block">
-    <h2 class="info-block__heading">Add Program</h2>
-    <div class="info-block__body grid grid--col-2">
-      <div class="form-group">
-        <label for="program">Program</label>
-        <select name="program" id="program" class="form-control" [(ngModel)]="selectedProgram">
-          <option *ngFor="let program of programs" [value]="program.id">
-            {{ program.programName }}
-          </option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="programPriceList">Program Price List</label>
-        <select
-          name="programPriceList"
-          id="programPriceList"
-          class="form-control"
-          ngModel
-        >
-          <option
-            *ngFor="let programPriceList of programPriceLists"
-            [value]="programPriceList.id"
-          >
-            {{ programPriceList.name }}
-          </option>
-        </select>
-      </div>
-      <div class="form-group main-col--full">
-        <label for="comments">Comments</label>
-        <input
-          type="text"
-          class="form-control"
-          name="comments"
-          id="comments"
-          placeholder="Comments"
-          #comments="ngModel"
-          ngModel
-        />
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Add Program</button>
-      </div>
-    </div>
 
-    <div class="programs" *ngFor="let program of programs">
-      <h2 class="info-block__heading">Program Detail</h2>
+<div class="info-block">
+  <form #programForm="ngForm" (ngSubmit)="onAddProgram(programForm.value)">
+    <!-- <div class="info-block"> -->
+      <h2 class="info-block__heading">Add Program</h2>
       <div class="info-block__body grid grid--col-2">
         <div class="form-group">
           <label for="program">Program</label>
-          <select name="program" id="program" class="form-control" ngModel>
+          <select name="program" id="program" class="form-control" [(ngModel)]="selectedProgram">
             <option *ngFor="let program of programs" [value]="program.id">
               {{ program.programName }}
-            </option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="registrationStatus">Registration Status</label>
-          <select
-            name="registrationStatus"
-            id="registrationStatus"
-            class="form-control"
-            ngModel
-          >
-            <option
-              *ngFor="let registrationStatus of registrationStatuses"
-              [value]="registrationStatus.id"
-            >
-              {{ registrationStatus.name }}
-            </option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="programPriceList">Program Price List</label>
-          <select
-            name="programPriceList"
-            id="programPriceList"
-            class="form-control"
-            ngModel
-          >
-            <option
-              *ngFor="let programPriceList of programPriceLists"
-              [value]="programPriceList.id"
-            >
-              {{ programPriceList.name }}
-            </option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="instrumentPriceList">Instrument Price List</label>
-          <select
-            name="instrumentPriceList"
-            id="instrumentPriceList"
-            class="form-control"
-            ngModel
-          >
-            <option
-              *ngFor="let instrumentPriceList of instrumentPriceLists"
-              [value]="instrumentPriceList.id"
-            >
-              {{ instrumentPriceList.name }}
             </option>
           </select>
         </div>
@@ -114,16 +24,10 @@
             ngModel
           />
         </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Add Program</button>
+        </div>
+        <app-student-programs-list class="main-col--full" [studentId]="studentId"></app-student-programs-list>
       </div>
-    </div>
-
-    <h2 class="info-block__heading">Main Instruments</h2>
-    <app-student-instruments></app-student-instruments>
-    <!-- <div class="info-block__body">
-
-    </div> -->
-    <!-- <div class="info-block__heading">
-      <button type="submit" class="btn btn-primary">Save</button>
-    </div> -->
-  </div>
-</form>
+  </form>
+</div>

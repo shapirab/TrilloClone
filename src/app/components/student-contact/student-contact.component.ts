@@ -46,7 +46,6 @@ export class StudentContactComponent implements OnInit {
   loadStudent(){
     this.service.getStudentById(this.studentId).subscribe((student) => {
       this.populateForm(student);
-      console.log(student)
     });
   }
 
@@ -60,7 +59,7 @@ export class StudentContactComponent implements OnInit {
       this.Address = student.address;
       this.City = student.city;
       this.DateOfBirth = new Date(student.dateOfBirth);
-      const datePipe = new DatePipe('en-US');
+      let datePipe = new DatePipe('en-US');
       this.DateOfBirthFormatted = datePipe.transform(this.DateOfBirth, 'yyyy-MM-dd');
     }
   }
@@ -76,7 +75,7 @@ export class StudentContactComponent implements OnInit {
 
   onSave(value: any){
     this.isNewStudent ? this.createNewStudent(value) : this.updateStudent(value);
-    this.router.navigate(['/students']);
+    this.router.navigate(['/home/students']);
   }
 
   createNewStudent(value: any){

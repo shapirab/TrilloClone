@@ -1,0 +1,69 @@
+<form #registrationForm="ngForm" (ngSubmit)="onRegistrationSave(registrationForm.value)">
+  <div class="info-block">
+    <h2 class="info-block__heading">Registration Status</h2>
+    <div class="info-block__body grid grid--col-2">
+      <div class="form-group">
+        <label for="registrationStatus">Registration Status</label>
+        <select
+          name="registrationStatus"
+          id="registrationStatus"
+          class="form-control"
+          ngModel
+        >
+          <option
+            *ngFor="let registrationStatus of registrationStatuses"
+            [value]="registrationStatus.id"
+          >
+            {{ registrationStatus.name }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="programPriceList">Program Price List</label>
+        <select
+          name="programPriceList"
+          id="programPriceList"
+          class="form-control"
+          ngModel
+        >
+          <option
+            *ngFor="let programPriceList of programPriceLists"
+            [value]="programPriceList.id"
+          >
+            {{ programPriceList.name }}
+          </option>
+        </select>
+      </div>
+      <!-- <div class="form-group">
+        <label for="instrumentPriceList">Instrument Price List</label>
+        <select
+          name="instrumentPriceList"
+          id="instrumentPriceList"
+          class="form-control"
+          ngModel
+        >
+          <option
+            *ngFor="let instrumentPriceList of instrumentPriceLists"
+            [value]="instrumentPriceList.id"
+          >
+            {{ instrumentPriceList.name }}
+          </option>
+        </select>
+      </div> -->
+      <div class="form-group main-col--full">
+        <label for="comments">Comments</label>
+        <input
+          type="text"
+          class="form-control"
+          name="comments"
+          id="comments"
+          placeholder="Comments"
+          #comments="ngModel"
+          ngModel
+        />
+      </div>
+    </div>
+  </div>
+  <app-student-program></app-student-program>
+  <app-student-instruments></app-student-instruments>
+</form>

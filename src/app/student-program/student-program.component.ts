@@ -15,7 +15,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class StudentProgramComponent implements OnInit {
   studentId: number;
-  studentPrograms: Program[];
   registrationStatus: RegistrationStatus;
   programPriceList: ProgramPriceList;
   instrumentPriceList: InstrumentPriceList;
@@ -34,15 +33,9 @@ export class StudentProgramComponent implements OnInit {
       next: res => this.programs = res,
       error: err => console.log(err)
     });
-    this.programService.getStudentPrograms(this.studentId).subscribe({
-      next: (res) => {
-        this.studentPrograms = res;
-      },
-      error: err => console.log(err)
-    });
   }
 
-  onSave(value: any){
+  onAddProgram(value: any){
     console.log(value);
     console.log(this.selectedProgram)
   }
