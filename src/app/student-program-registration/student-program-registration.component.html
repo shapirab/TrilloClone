@@ -8,13 +8,15 @@
           name="registrationStatus"
           id="registrationStatus"
           class="form-control"
-          ngModel
+          [(ngModel)]="currentStudentRegistrationStatus.id"
         >
+          <option *ngIf="!currentStudentRegistrationStatus || currentStudentRegistrationStatus.id === -1" selected>
+            Select a status
+          </option>
           <option
-            *ngFor="let registrationStatus of registrationStatuses"
-            [value]="registrationStatus.id"
-          >
-            {{ registrationStatus.name }}
+              *ngFor="let registrationStatus of registrationStatuses"
+              [value]="registrationStatus.id">
+              {{ registrationStatus.statusName }}
           </option>
         </select>
       </div>
@@ -34,22 +36,6 @@
           </option>
         </select>
       </div>
-      <!-- <div class="form-group">
-        <label for="instrumentPriceList">Instrument Price List</label>
-        <select
-          name="instrumentPriceList"
-          id="instrumentPriceList"
-          class="form-control"
-          ngModel
-        >
-          <option
-            *ngFor="let instrumentPriceList of instrumentPriceLists"
-            [value]="instrumentPriceList.id"
-          >
-            {{ instrumentPriceList.name }}
-          </option>
-        </select>
-      </div> -->
       <div class="form-group main-col--full">
         <label for="comments">Comments</label>
         <input
@@ -61,6 +47,9 @@
           #comments="ngModel"
           ngModel
         />
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
       </div>
     </div>
   </div>

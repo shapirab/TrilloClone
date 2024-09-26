@@ -32,10 +32,7 @@ export class StudentService {
     return this.http.get<Parent[]>(`${this.baseUrl}/stakeholders/parents/${studentId}`);
   }
 
-  getStudentRegistrationStatus(studentId: number, academicYearId: number){
-    return this.http.get<StudentRegistrationStatusInAcademicYear>
-    (`${this.baseUrl}/stakeholders/studentregistration/${studentId}/${academicYearId}`);
-  }
+
 
   // getStudentsByFilter(filter: Record<string, any>):Student[]{
   //   console.log(filter);

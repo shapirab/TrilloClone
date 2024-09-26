@@ -8,6 +8,7 @@ import { AcademicYear } from '../models/academicYear';
 })
 export class AcademicYearsService {
   baseUrl: string = 'https://localhost:7231/api/AcademicYears';
+  selectedAcademicYear:AcademicYear;
   constructor(private http: HttpClient) { }
 
   getAllAsync(): Observable<AcademicYear[]>{

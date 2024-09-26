@@ -1,5 +1,4 @@
-export interface StudentRegistrationStatusInAcademicYear{
-  id: number,
+export interface StudentRegistrationStatusInAcademicYearDTO{
   studentId: number,
   registrationStatusID: number,
   academicYearID: number

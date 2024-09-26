@@ -1,5 +1,5 @@
 export interface RegistrationStatus{
   id: number,
-  name: string,
+  statusName: string,
   checked: boolean
 }

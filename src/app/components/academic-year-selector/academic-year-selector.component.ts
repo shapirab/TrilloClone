@@ -34,8 +34,7 @@ export class AcademicYearSelectorComponent implements OnInit {
   }
 
   submitSelectedYear(){
-    console.log('from academic-year-selector: ')
-    console.log(this.selectedYear)
+    this.academicYearService.selectedAcademicYear = this.selectedYear;
     this.academicYear.emit(this.selectedYear);
   }
 }

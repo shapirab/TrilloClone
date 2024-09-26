@@ -19,7 +19,7 @@
       <div *ngFor="let registrationStatus of registrationStatusList">
         <input type="checkbox" class="form-check-inline" [value]="registrationStatus.id"
           (change)="getSelectedRegistrationValue(registrationStatus)"/>
-        <span>{{ registrationStatus.name }}</span>
+        <span>{{ registrationStatus.statusName }}</span>
       </div>
     </div>
     <div class="grid grid--col-2 grid--row-2 search-container">

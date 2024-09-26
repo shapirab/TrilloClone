@@ -21,11 +21,15 @@ export class StudentsMainComponent implements OnInit {
   filterByActiveStudents(isActive: boolean){
     this.academicYearService.getAcademicYear().subscribe({
       next: (res) => {
+        console.log('in studemtsMainComponent entering filterByActiveStudents');
+        console.log('response was: ', res);
         if(res != null){
           this.academicYear = res;
+          console.log('academic year', this.academicYear);
           this.studentService.getStudentsByRegistrationStatus(this.academicYear.academicYearID, isActive)
           .subscribe({
             next: (res) => {
+              console.log('in filterByActiveStudents, students response was', res);
               this.students = res;
               console.log(this.students);
             },

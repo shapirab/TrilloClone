@@ -58,17 +58,27 @@ export class StudentsFilterContainerComponent implements OnInit {
     this.years = yearsService.getAll();
     this.gradesInSchool = schoolService.getAll();
     this.departments = departmentService.getAll();
-    this.registrationStatusList = registrationService.getAll();
   }
 
   ngOnInit(): void {
     this.getPrograms();
+    this.getRegistrationStatuses();
+
   }
 
   async getPrograms(){
     await this.programService.getAll().subscribe({
       next: programs => {
         this.programs = programs;
+      },
+      error: err => console.log(err)
+    });
+  }
+
+  async getRegistrationStatuses(){
+    await this.registrationService.getAll().subscribe({
+      next: res => {
+        this.registrationStatusList = res;
       },
       error: err => console.log(err)
     });
@@ -88,7 +98,7 @@ export class StudentsFilterContainerComponent implements OnInit {
     this.registrationStatusesLine = "";
     this.addOrRemoveStatus(registrationStatus);
     this.selectedRegistrationStatuses.forEach(registrationStatus => {
-      this.registrationStatusesLine = this.registrationStatusesLine.concat(registrationStatus.name + ", ");
+      this.registrationStatusesLine = this.registrationStatusesLine.concat(registrationStatus.statusName + ", ");
     });
   }
 
