@@ -19,7 +19,7 @@ export class StudentProgramComponent implements OnInit {
   programPriceList: ProgramPriceList;
   instrumentPriceList: InstrumentPriceList;
   programs: Program[];
-  selectedProgram: Program;
+  selectedProgram: Program = {id: -1, programName: 'no selection'};
   registrationStatuses: RegistrationStatus[];
   programPriceLists: ProgramPriceList[];
   instrumentPriceLists: InstrumentPriceList[];

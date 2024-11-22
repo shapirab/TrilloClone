@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProgramPriceList } from '../models/programPriceList';
+import { ProgramPriceList, Type } from '../models/programPriceList';
 import { RegistrationStatus } from '../models/registrationStatus';
 import { InstrumentType } from '../models/instrumentType';
 import { RegistrationService } from '../services/registration.service';
@@ -10,6 +10,9 @@ import { StudentRegistrationMapService } from '../services/student-registration-
 import { ActivatedRoute } from '@angular/router';
 import { StudentRegistrationStatusInAcademicYear } from '../models/studentRegistrationStatusInAcademicYear';
 import { StudentRegistrationStatusInAcademicYearDTO } from '../models/studentRegistrationStatusInAcademicYearDTO';
+import { ProgramPriceListService } from '../services/program-price-list.service';
+import { Program } from '../models/program';
+import { ProgramService } from '../services/program.service';
 
 @Component({
   selector: 'app-student-program-registration',
@@ -29,13 +32,14 @@ export class StudentProgramRegistrationComponent implements OnInit {
   };
 
   studentID: number;
-
   selectedAcademicYear:AcademicYear;
 
   studentInstrumentTypes: InstrumentType[];
   constructor(private registrationService: RegistrationService,
               private academicYearService: AcademicYearsService,
               private studentRegistrationMapService: StudentRegistrationMapService,
+              private priceListService: ProgramPriceListService,
+              private programService: ProgramService,
               private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -45,6 +49,22 @@ export class StudentProgramRegistrationComponent implements OnInit {
       error: err => console.log('Error in getting all registration status types', err)
     });
     this.getStudentCurrentRegistrationStatus();
+
+    this.priceListService.getAll().subscribe({
+      next: res => {
+        console.log(res);
+        this.programPriceLists = res;
+        this.programPriceLists.forEach(programPriceList => {
+          this.programService.getProgramById(programPriceList.programID).subscribe({
+            next: res => {
+              programPriceList.program = res;
+            },
+            error: err => console.log('Error in getting the program', err)
+          });
+        });
+      },
+      error: err => console.log('Error in getting all the price lists', err)
+    });
   }
 
   onRegistrationSave(value:any){
@@ -113,5 +133,9 @@ export class StudentProgramRegistrationComponent implements OnInit {
         });
       });
     }
+  }
+
+  getTypeName(type: Type): string{
+    return Type[type];
   }
 }

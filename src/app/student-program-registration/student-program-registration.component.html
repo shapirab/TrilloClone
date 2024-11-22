@@ -10,9 +10,10 @@
           class="form-control"
           [(ngModel)]="currentStudentRegistrationStatus.id"
         >
-          <option *ngIf="!currentStudentRegistrationStatus || currentStudentRegistrationStatus.id === -1" selected>
+          <!-- <option *ngIf="!currentStudentRegistrationStatus || currentStudentRegistrationStatus.id === -1" selected>
             Select a status
-          </option>
+          </option> -->
+          <option value="" disabled>Select a registration status</option>
           <option
               *ngFor="let registrationStatus of registrationStatuses"
               [value]="registrationStatus.id">
@@ -28,11 +29,12 @@
           class="form-control"
           ngModel
         >
+        <option value="" disabled>Select a price list</option>
           <option
             *ngFor="let programPriceList of programPriceLists"
             [value]="programPriceList.id"
           >
-            {{ programPriceList.name }}
+            {{ programPriceList.program?.programName }} : {{ getTypeName(programPriceList.type) }} : ${{ programPriceList.priceValue }}
           </option>
         </select>
       </div>

@@ -7,7 +7,7 @@ import { Student } from 'src/app/models/student';
   styleUrls: ['./student-tabs.component.css']
 })
 export class StudentTabsComponent implements OnInit {
-  @Input() student: Student;
+  @Input() student: Student | undefined;
 
   constructor() { }
 
