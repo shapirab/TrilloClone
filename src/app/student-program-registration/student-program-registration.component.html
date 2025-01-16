@@ -27,13 +27,12 @@
           name="programPriceList"
           id="programPriceList"
           class="form-control"
-          ngModel
+          [(ngModel)]="programPriceList.id"
         >
         <option value="" disabled>Select a price list</option>
           <option
             *ngFor="let programPriceList of programPriceLists"
-            [value]="programPriceList.id"
-          >
+            [value]="programPriceList.id">
             {{ programPriceList.program?.programName }} : {{ getTypeName(programPriceList.type) }} : ${{ programPriceList.priceValue }}
           </option>
         </select>

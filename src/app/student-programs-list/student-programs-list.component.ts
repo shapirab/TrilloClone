@@ -15,9 +15,22 @@ export class StudentProgramsListComponent implements OnInit {
   ngOnInit(): void {
     this.programService.getStudentPrograms(this.studentId).subscribe({
       next: (res) => {
-        this.studentPrograms = res;
+        //this.studentPrograms = res;
+        if (res && res.length > 0) {
+          this.studentPrograms = res;
+        }
+        else {
+          console.log('No programs found for this student.');
+        }
       },
-      error: err => console.log(err)
+      error: err => {
+        if(err.status != '404'){
+          console.log(err);
+        }
+        else{
+          console.log('No programs found (404 error).');
+        }
+      }
     });
   }
 

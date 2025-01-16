@@ -40,4 +40,11 @@ export class StudentProgramComponent implements OnInit {
     console.log(this.selectedProgram)
   }
 
+  onProgramChange(event: any): void {
+    const selectedProgramId = event.target.value;
+    this.selectedProgram = this.programs.find(program =>
+      program.id === +selectedProgramId) || this.selectedProgram;
+      console.log('Selected Program:', this.selectedProgram);
+    }
+
 }

@@ -13,6 +13,7 @@ import { StudentRegistrationStatusInAcademicYearDTO } from '../models/studentReg
 import { ProgramPriceListService } from '../services/program-price-list.service';
 import { Program } from '../models/program';
 import { ProgramService } from '../services/program.service';
+import { forkJoin, map, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-student-program-registration',
@@ -20,7 +21,13 @@ import { ProgramService } from '../services/program.service';
   styleUrls: ['./student-program-registration.component.css']
 })
 export class StudentProgramRegistrationComponent implements OnInit {
-  programPriceList: ProgramPriceList;
+  programPriceList: ProgramPriceList = {
+    id: 0,
+    programID: 0,
+    program: undefined,
+    type: Type['Resident Student'],
+    isPricePerCourse: false
+  };
   programPriceLists: ProgramPriceList[];
   registrationStatus: RegistrationStatus;
   registrationStatuses: RegistrationStatus[];
@@ -49,25 +56,47 @@ export class StudentProgramRegistrationComponent implements OnInit {
       error: err => console.log('Error in getting all registration status types', err)
     });
     this.getStudentCurrentRegistrationStatus();
+    this.getStudentCurrentPriceList();
 
-    this.priceListService.getAll().subscribe({
-      next: res => {
-        console.log(res);
-        this.programPriceLists = res;
-        this.programPriceLists.forEach(programPriceList => {
-          this.programService.getProgramById(programPriceList.programID).subscribe({
-            next: res => {
-              programPriceList.program = res;
-            },
-            error: err => console.log('Error in getting the program', err)
-          });
-        });
-      },
-      error: err => console.log('Error in getting all the price lists', err)
-    });
+    this.priceListService.getAll()
+    .pipe(
+      switchMap(priceLists => {
+        this.programPriceLists = priceLists;
+        let programRequests = priceLists
+          .map(priceList =>
+            this.programService.getProgramById(priceList.programID)
+            .pipe( map(program => (
+              {
+                ...priceList, program
+            }))
+            )
+          );
+          return forkJoin(programRequests);
+        })
+      ).subscribe({
+        next: updatedPriceLists => {
+          this.programPriceLists = updatedPriceLists;
+        }, error: err => console.log('Error in getting all the price lists', err)
+      });
+    // this.priceListService.getAll().subscribe({
+    //   next: res => {
+    //     console.log(res);
+    //     this.programPriceLists = res;
+    //     this.programPriceLists.forEach(programPriceList => {
+    //       this.programService.getProgramById(programPriceList.programID).subscribe({
+    //         next: res => {
+    //           programPriceList.program = res;
+    //         },
+    //         error: err => console.log('Error in getting the program', err)
+    //       });
+    //     });
+    //   },
+    //   error: err => console.log('Error in getting all the price lists', err)
+    // });
   }
 
   onRegistrationSave(value:any){
+    console.log(value)
     if(this.activeRoute.parent){
       this.activeRoute.parent.params.subscribe(params => {
         let studentID = params['id'];
@@ -80,7 +109,8 @@ export class StudentProgramRegistrationComponent implements OnInit {
                   id: map.id,
                   studentId: studentID,
                   registrationStatusID: value.registrationStatus,
-                  academicYearID: map.academicYearID
+                  academicYearID: map.academicYearID,
+                  priceListID: value.programPriceList
                 }
 
                 this.studentRegistrationMapService
@@ -97,7 +127,8 @@ export class StudentProgramRegistrationComponent implements OnInit {
                 let map: StudentRegistrationStatusInAcademicYearDTO = {
                   studentId: studentID,
                   academicYearID: this.selectedAcademicYear.academicYearID,
-                  registrationStatusID: value.registrationStatus
+                  registrationStatusID: value.registrationStatus,
+                  priceListID: value.programPriceList
                 }
                 this.studentRegistrationMapService.addStudentRegistrationStatus(map).subscribe({
                   next: res => console.log(res),
@@ -130,6 +161,29 @@ export class StudentProgramRegistrationComponent implements OnInit {
             })
           },
           error: err => console.log('Error in getting the registration status type', err)
+        });
+      });
+    }
+  }
+
+  getStudentCurrentPriceList(){
+    if(this.activeRoute.parent){
+      this.activeRoute.parent.params.subscribe(params => {
+        let studentID = params['id'];
+        this.studentRegistrationMapService
+        .getStudentRegistrationStatus(studentID, this.selectedAcademicYear.academicYearID)
+        .subscribe({
+          next: registrationMap => {
+            this.priceListService.getPriceListById(registrationMap.priceListID).subscribe({
+              next: priceList => {
+                if(priceList){
+                  this.programPriceList = priceList;
+                }
+              },
+              error: err => console.log(err)
+            });
+          },
+          error: err => console.log(err)
         });
       });
     }

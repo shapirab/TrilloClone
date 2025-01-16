@@ -23,7 +23,6 @@ export class StudentRegistrationMapService {
   }
 
   updateStudentRegistrationStatus(mapID: number, studentRegistrationStatusMap: StudentRegistrationStatusInAcademicYear){
-    console.log('entering sutdentRegistrationMapService update method');
     console.log(mapID);
     console.log(studentRegistrationStatusMap);
     return this.http.put<StudentRegistrationStatusInAcademicYear>

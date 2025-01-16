@@ -13,4 +13,8 @@ export class ProgramPriceListService {
   getAll(): Observable<ProgramPriceList[]>{
     return this.http.get<ProgramPriceList[]>(`${this.baseUrl}/PriceLists`);
   }
+
+  getPriceListById(id: number): Observable<ProgramPriceList>{
+    return this.http.get<ProgramPriceList>(`${this.baseUrl}/PriceLists/${id}`);
+  }
 }
