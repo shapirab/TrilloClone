@@ -81,6 +81,8 @@ export class StudentService {
   }
 
   addStudentParent(parent: Parent, studentID: number){
+    console.log('in studentService entering addStudentParent. StudentID: ', studentID)
+    console.log('parent: ', parent)
     this.http.post(`${this.baseUrl}/stakeholders/parents/${studentID}`, parent)
     .subscribe((res) => {
       //no op...

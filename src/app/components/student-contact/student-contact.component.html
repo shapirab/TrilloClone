@@ -77,7 +77,7 @@
         </div>
       </div>
     </div>
-    <div class="info-block">
+    <div class="info-block" *ngIf="studentId">
       <h2 class="info-block__heading">Parents Information</h2>
       <div class="parents-container info-block__body grid grid--col-2">
         <app-parents-contact [parent]="parent1" (updatedParent)="updateStudentParent_1($event)"></app-parents-contact>

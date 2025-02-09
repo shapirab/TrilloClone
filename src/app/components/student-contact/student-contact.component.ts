@@ -105,19 +105,23 @@ export class StudentContactComponent implements OnInit {
 
 
   addStudentParent(parent:Parent){
+    console.log('in studentContactComponent enter addStudentParent(). Parent: ', parent)
     parent.lastName = this.LastName;
     parent.address = this.Address;
     this.service.addStudentParent(parent, this.studentId);
   }
 
   getStudentParents(studentId: number){
+    console.log('studentContactComponent::getStudentParents() called')
+    console.log('studentId: ', studentId)
     this.service.getStudentParents(studentId).subscribe({
       next: parentsRes => {
+        console.log('ParentsRes: ', parentsRes)
         let parents: Parent[] = parentsRes;
         this.parent1 = parents[0];
         this.parent2 = parents[1]
       },
-      error: err => console.log(err)
+      error: err => console.log('Error in getting studentParents: ', err)
     });
   }
 }
