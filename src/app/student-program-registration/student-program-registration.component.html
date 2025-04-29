@@ -10,9 +10,6 @@
           class="form-control"
           [(ngModel)]="currentStudentRegistrationStatus.id"
         >
-          <!-- <option *ngIf="!currentStudentRegistrationStatus || currentStudentRegistrationStatus.id === -1" selected>
-            Select a status
-          </option> -->
           <option value="" disabled>Select a registration status</option>
           <option
               *ngFor="let registrationStatus of registrationStatuses"
@@ -21,22 +18,43 @@
           </option>
         </select>
       </div>
-      <div class="form-group">
-        <label for="programPriceList">Program Price List</label>
+
+      <!-- <div class="form-group">
+        <label for="priceLists">Program Price List</label>
         <select
-          name="programPriceList"
-          id="programPriceList"
+          name="priceLists"
+          id="priceLists"
           class="form-control"
-          [(ngModel)]="programPriceList.id"
+          [(ngModel)]="currentProgramPriceList.priceListID"
+          (ngModelChange)="onProgramPriceListChange($event)"
         >
-        <option value="" disabled>Select a price list</option>
+        <option disabled>Select a price list</option>
           <option
-            *ngFor="let programPriceList of programPriceLists"
-            [value]="programPriceList.id">
-            {{ programPriceList.program?.programName }} : {{ getTypeName(programPriceList.type) }} : ${{ programPriceList.priceValue }}
+            *ngFor="let priceList of programPriceLists"
+            [value]="priceList.priceListID">
+            {{ priceList.program?.programName }} : {{ getTypeName(priceList.type) }} : ${{ priceList.priceValue }}
+          </option>
+        </select>
+      </div> -->
+      <div class="form-group">
+        <label for="priceLists">Program Price List</label>
+        <select
+          name="priceLists"
+          id="priceLists"
+          class="form-control"
+          [(ngModel)]="currentProgramPriceList"
+          (ngModelChange)="onProgramPriceListChange($event)"
+          [compareWith]="comparePriceLists"
+        >
+        <option [ngValue]="null" disabled>Select a price list</option>
+          <option
+            *ngFor="let priceList of programPriceLists"
+            [ngValue]="priceList">
+            {{ priceList.program?.programName }} : {{ getTypeName(priceList.type) }} : ${{ priceList.priceValue }}
           </option>
         </select>
       </div>
+
       <div class="form-group main-col--full">
         <label for="comments">Comments</label>
         <input

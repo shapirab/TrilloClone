@@ -6,9 +6,9 @@ export enum Type{
 }
 
 export interface ProgramPriceList{
-  id: number,
+  priceListID: number,
   programID: number,
-  program: Program | undefined,
+  program?: Program,
   type: Type,
   isPricePerCourse: boolean
   priceValue?: number,

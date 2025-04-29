@@ -18,13 +18,16 @@ export class StudentRegistrationMapService {
   }
 
   addStudentRegistrationStatus(studentRegistrationStatusMap: StudentRegistrationStatusInAcademicYearDTO){
+    console.log('studentRegistrationMapService::addStudentRegistrationStatus()');
+    console.log('statement: ',`${this.baseUrl}/StudentRegistrationStatusForAcademicYear`, studentRegistrationStatusMap)
     return this.http.post<StudentRegistrationStatusInAcademicYear>
     (`${this.baseUrl}/StudentRegistrationStatusForAcademicYear`, studentRegistrationStatusMap);
   }
 
   updateStudentRegistrationStatus(mapID: number, studentRegistrationStatusMap: StudentRegistrationStatusInAcademicYear){
-    console.log(mapID);
-    console.log(studentRegistrationStatusMap);
+    // console.log('studentRegistrationMapService::updateStudentRegistrationStatus(). mapId: ',mapID);
+    // console.log('studentRegistrationMapService::updateStudentRegistrationStatus(). studentRegistrationStatusMap: '
+    //   ,studentRegistrationStatusMap);
     return this.http.put<StudentRegistrationStatusInAcademicYear>
     (`${this.baseUrl}/StudentRegistrationStatusForAcademicYear/${mapID}`, studentRegistrationStatusMap);
   }
